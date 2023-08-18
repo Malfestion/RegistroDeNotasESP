@@ -1,0 +1,16 @@
+<?php  
+
+if (isset($_SESSION['username']) && isset($_SESSION['id'])) {
+    
+    $sql = "SELECT * FROM notas 
+            JOIN estudiante ON (estudiante.id = notas.id_estudiante)
+            JOIN area ON (area.id = notas.id_area) 
+            JOIN profesor ON (profesor.id = notas.id_profesor)
+            JOIN nivel ON (nivel.id = notas.id_nivel)    
+            ORDER BY id_estudiante ASC";
+
+
+    $res = mysqli_query($conn, $sql);
+}else{
+	header("Location: login.php");
+} 
