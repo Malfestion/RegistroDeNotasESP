@@ -1,6 +1,6 @@
 <?php  
 session_start();
-include "../db_conn.php";
+include "db_conn.php";
 
 if (isset($_POST['username']) && isset($_POST['password']) /*&& isset($_POST['role'])*/) {
 
@@ -16,9 +16,9 @@ if (isset($_POST['username']) && isset($_POST['password']) /*&& isset($_POST['ro
 	//$role = test_input($_POST['role']);
 
 	if (empty($username)) {
-		header("Location: ../login.php?error=User Name is Required");
+		header("Location: ../login.php?error=Se requiere ingresar un nombre de usuario.");
 	}else if (empty($password)) {
-		header("Location: ../login.php?error=Password is Required");
+		header("Location: ../login.php?error=Se requiere ingresar una contraseña.");
 	}else {
 
 		// Hashing the password
@@ -39,10 +39,10 @@ if (isset($_POST['username']) && isset($_POST['password']) /*&& isset($_POST['ro
         		header("Location: ../index.php");
 
         	}else {
-        		header("Location: ../login.php?error=Incorect User name or password");
+        		header("Location: ../login.php?error=Nombre de usuario o contraseña incorrecto.");
         	}
         }else {
-        	header("Location: ../login.php?error=Incorect User name or password");
+        	header("Location: ../login.php?error=Nombre de usuario o contraseña incorrecto.");
         }
 
 	}

@@ -1,15 +1,15 @@
 <?php
-//se busca el id  $_GET['id'] y se realiza el delete from
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
     include "db_conn.php";
-    $id = $_GET['id'];
 
-    $sql = "DELETE FROM profesor WHERE id='$id'";
+    $id = null;
+    $nombre_area = $_POST['nombre'];
 
+    $sql = "INSERT INTO area (nombre_area) VALUES('$nombre_area')";
     $query = mysqli_query($conn, $sql);
     if ($query) {
-        Header("Location: ../profesores.php");
+        Header("Location: ../areas.php");
     }
     ;
 }

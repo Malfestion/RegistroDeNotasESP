@@ -30,6 +30,9 @@ El sistema está montado con la base de datos de manera que los **estudiantes**,
 - Bootstrap 5.3.x
 - PHP  8.2.4
 - MySQL 8.0.34
+- JQuery 3.7
+- DataTables 1.13.6
+- Select2 4.1.0
 
 ### Autores:
 - Alejandro Duarte Lobo - Gestor de TI de Inglés por Áreas

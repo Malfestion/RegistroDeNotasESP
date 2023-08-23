@@ -3,8 +3,8 @@
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
     include "php/db_conn.php";
-    //se buscan todos los profesores
-    $sql = "SELECT * FROM profesor";
+    //se buscan todos los estudiantes
+    $sql = "SELECT * FROM estudiante";
     $query = mysqli_query($conn, $sql);
     ?>
 
@@ -18,6 +18,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
         <link href="bootstrap5/css/bootstrap.min.css" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="img/favicon.ico">
         <script src="bootstrap5/js/bootstrap.bundle.min.js"></script>
+        <script src="js/jQuery-3.7.0/jquery-3.7.0.min.js"></script>
+        <script type="text/javascript" src="js/datatables.min.js"></script>
     </head>
 
     <body>
@@ -66,10 +68,15 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
 
 
         <div class="container" style="margin-top: 80px;">
-            <h2>Agregar Docente</h2>
+            <h2>Agregar Estudiante</h2>
             <br>
-            <form action="php/insert_profe.php" method="POST"><!--La accion de el submit del formulario es importante-->
+            <form action="php/insert_estudiante.php" method="POST">
 
+                <div class="mb-3 p-3">
+                    <label for="name" class="form-label">Carné/Cédula</label>
+                    <input type="text" class="form-control" id="id" name="id" placeholder="Identificación"
+                        required="required">
+                </div>
                 <div class="mb-3 p-3">
                     <label for="name" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="name" name="nombre" placeholder="Nombre Completo"
@@ -85,68 +92,82 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                     <input type="number" class="form-control" id="tel" name="telefono"
                         placeholder="Extension de oficina o # de celular">
                 </div>
-                <input type="submit" class="btn btn-primary" style="margin-left: 15px;" value="Agregar Profesor a la Lista">
+                <div class="mb-3  p-3">
+                    <label for="estado" class="form-label">Estado del Estudiante</label>
+                    <select class="form-select" id="estado" name="estado">
+                        <option value="ACT">Activo</option>
+                        <option value="RJ">Retiro Justificado</option>
+                        <option value="RI">Retiro Injustificado</option>
+                    </select>
+
+                </div>
+                <input type="submit" class="btn btn-primary" style="margin-left: 15px;"
+                    value="Agregar Estudiante a la Lista">
 
             </form>
         </div>
         <br>
         <div class="container" style="margin-bottom: 80px;">
-            <h2>Docentes en la lista</h2>
+            <h2>Estudiantes en la lista</h2>
             <br>
+            <script>
+                $(document).ready(function () {
+                    $('#tabla-estudiantes').DataTable({
+                        "oLanguage": {
+                            "sSearch": "Busqueda por nombre o carné:"
+                        }
+                    });
 
-            <form action="" method="get" style="display: flex;">
-                <input class="form-control" type="search" name="busqueda" style="width: 500px;" value="<?php if (!empty($_GET['busqueda'])) {
-                    echo $_GET['busqueda']; //se mantiene el valor de la busqueda
-            
-                } ?>" placeholder="Busqueda por nombre" aria-label="Search">
-                <button class="btn btn-primary" type="submit" name="enviar" value="Buscar">Buscar</button>
-            </form>
-
-            <br>
-            <table class="table table-striped table-hover">
+                });
+            </script>
+            <table id="tabla-estudiantes" class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>id</th>
                         <th>Nombre</th>
                         <th>Correo</th>
                         <th>Teléfono</th>
+                        <th>Estado</th>
                         <th></th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <?php $i = 1;
-                        $busqueda = "";
-                        if (isset($_GET['enviar'])) { //al buscar se muestran los valores en contrados pero aqui se muestran todos si la busqueda es vacia
-                    
-                            $busqueda = $_GET['busqueda'];
-                        }
-                        $consulta = $conn->query("SELECT * FROM profesor WHERE nombre_profesor LIKE '%$busqueda%'");
-                        while ( /*$row = mysqli_fetch_array($query))*/$row = $consulta->fetch_array()): ?>
+                        <?php
+                        $i = 1;
+                        while ($row = mysqli_fetch_array($query)): ?>
                             <th>
                                 <?= $i ?>
                             </th>
                             <th>
-                                <?= $row['nombre_profesor'] ?>
+                                <?= $row['id'] ?>
                             </th>
                             <th>
-                                <?= $row['correo_profesor'] ?>
+                                <?= $row['nombre_estudiante'] ?>
                             </th>
                             <th>
-                                <?= $row['telefono_profesor'] ?>
+                                <?= $row['correo_estudiante'] ?>
+                            </th>
+                            <th>
+                                <?= $row['telefono_estudiante'] ?>
+                            </th>
+                            <th>
+                                <?= $row['estado_estudiante'] ?>
                             </th>
                             <th><a class="btn btn-primary"
-                                    href="update_profe.php?id=<?= $row['id'] //se envia el id a update?>">Editar</a></th>
+                                    href="update_estudiante.php?id=<?= $row['id'] //se envia el id a update?>">Editar</a></th>
                             <th><a class="btn btn-danger"
-                                    href="php/delete_profe.php?id=<?= $row['id'] //se envia el id a delete?>" onclick="return confirm('Realmente quiere eliminar esta entrada? Los datos en el registro de notas pueden depender de esta.')">Eliminar</a></th>
+                                    href="php/delete_estudiante.php?id=<?= $row['id'] //se envia el id a delete?>"
+                                    onclick="return confirm('Realmente quiere eliminar esta entrada? Los datos en el registro de notas pueden depender de esta.')">Eliminar</a>
+                            </th>
                             <?php $i++; ?>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
             </table>
         </div>
-
 
         <footer class="bg-light text-center text-lg-start fixed-bottom">
             <div class="text-center p-3">

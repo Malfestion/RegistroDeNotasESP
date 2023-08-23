@@ -3,9 +3,9 @@
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
         include "php/db_conn.php";
-        //se consiguie el id del profesor enviado para editar y se busca en la bd
+        //se consiguie el id del estudiante enviado para editar y se busca en la bd
         $id = $_GET['id'];
-        $sql = "SELECT * FROM profesor WHERE id='$id'";
+        $sql = "SELECT * FROM estudiante WHERE id='$id'";
         $query = mysqli_query($conn, $sql);
         $row = $row = mysqli_fetch_array($query);
         ?>
@@ -24,26 +24,40 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
 
         <body>
                 <div class="container" style="margin-top: 80px; margin-bottom: 80px;">
-                        <form action="php/edit_profe.php" method="POST">
-                                <h1>Editar Profesor</h1>
-                                <input type="hidden" name="id"
-                                        value="<?= $row['id'] //el id se deja como un valor oculto, para enviarlo al script del query?>">
+                        <form action="php/edit_estudiante.php" method="POST">
+                                <h1>Editar Estudiante</h1>
+                                <div class="mb-3 p-3">
+                                        <label for="name" class="form-label">ID</label>
+                                        <input type="text" class="form-control" id="id" name="id" readonly
+                                                value="<?= $row['id'] //se muestran los datos existentes para qye se pueda editar?>">
+                                </div>
                                 <div class="mb-3 p-3">
                                         <label for="name" class="form-label">Nombre</label>
                                         <input type="text" class="form-control" id="name" name="nombre"
                                                 placeholder="Nombre Completo"
-                                                value="<?= $row['nombre_profesor'] //se muestran los datos existentes para qye se pueda editar?>">
+                                                value="<?= $row['nombre_estudiante'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="email" class="form-label">Correo Institucional</label>
                                         <input type="email" class="form-control" id="email" name="correo"
-                                                placeholder="Correo ucr.ac.cr" value="<?= $row['correo_profesor'] ?>">
+                                                placeholder="Correo ucr.ac.cr" value="<?= $row['correo_estudiante'] ?>">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="tel" class="form-label">Número de Teléfono</label>
                                         <input type="number" class="form-control" id="tel" name="telefono"
                                                 placeholder="Extension de oficina o # de celular"
-                                                value="<?= $row['telefono_profesor'] ?>">
+                                                value="<?= $row['telefono_estudiante'] ?>">
+                                </div>
+
+                                <div class="mb-3  p-3">
+                                        <label for="tel" class="form-label">Estado</label>
+                                        <select class="form-select" id="estado" name="estado">
+                                                <option value="<?= $row['estado_estudiante'] ?>" selected>Estado del Estudiante
+                                                </option>
+                                                <option value="ACT">Activo</option>
+                                                <option value="RJ">Retiro Justificado</option>
+                                                <option value="RI">Retiro Injustificado</option>
+                                        </select>
                                 </div>
                                 <input type="submit" class="btn btn-primary" style="margin-left: 15px;"
                                         value="Actualizar informacion">

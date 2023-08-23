@@ -1,0 +1,12 @@
+#tabla-notas_filter {
+    display: none;
+}
+
+.table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+#tabla-boton input{
+    display: none;
+}

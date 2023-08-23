@@ -3,8 +3,8 @@
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
     include "php/db_conn.php";
-    //se buscan todos los profesores
-    $sql = "SELECT * FROM profesor";
+    //se buscan todos los niveles
+    $sql = "SELECT * FROM nivel";
     $query = mysqli_query($conn, $sql);
     ?>
 
@@ -66,32 +66,22 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
 
 
         <div class="container" style="margin-top: 80px;">
-            <h2>Agregar Docente</h2>
+            <h2>Agregar nivel</h2>
             <br>
-            <form action="php/insert_profe.php" method="POST"><!--La accion de el submit del formulario es importante-->
+            <form action="php/insert_nivel.php" method="POST"><!--La accion de el submit del formulario es importante-->
 
                 <div class="mb-3 p-3">
                     <label for="name" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="name" name="nombre" placeholder="Nombre Completo"
+                    <input type="text" class="form-control" id="name" name="nombre" placeholder="Nombre del nivel"
                         required="required">
                 </div>
-                <div class="mb-3  p-3">
-                    <label for="email" class="form-label">Correo Institucional</label>
-                    <input type="email" class="form-control" id="email" name="correo" placeholder="Correo @ucr.ac.cr"
-                        required="required">
-                </div>
-                <div class="mb-3  p-3">
-                    <label for="tel" class="form-label">Número de Teléfono</label>
-                    <input type="number" class="form-control" id="tel" name="telefono"
-                        placeholder="Extension de oficina o # de celular">
-                </div>
-                <input type="submit" class="btn btn-primary" style="margin-left: 15px;" value="Agregar Profesor a la Lista">
+                <input type="submit" class="btn btn-primary" style="margin-left: 15px;" value="Agregar nivel a la Lista">
 
             </form>
         </div>
         <br>
         <div class="container" style="margin-bottom: 80px;">
-            <h2>Docentes en la lista</h2>
+            <h2>Niveles en la lista</h2>
             <br>
 
             <form action="" method="get" style="display: flex;">
@@ -108,8 +98,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                     <tr>
                         <th>#</th>
                         <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Teléfono</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -122,24 +110,18 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                     
                             $busqueda = $_GET['busqueda'];
                         }
-                        $consulta = $conn->query("SELECT * FROM profesor WHERE nombre_profesor LIKE '%$busqueda%'");
+                        $consulta = $conn->query("SELECT * FROM nivel WHERE nombre_nivel LIKE '%$busqueda%'");
                         while ( /*$row = mysqli_fetch_array($query))*/$row = $consulta->fetch_array()): ?>
                             <th>
                                 <?= $i ?>
                             </th>
                             <th>
-                                <?= $row['nombre_profesor'] ?>
-                            </th>
-                            <th>
-                                <?= $row['correo_profesor'] ?>
-                            </th>
-                            <th>
-                                <?= $row['telefono_profesor'] ?>
+                                <?= $row['nombre_nivel'] ?>
                             </th>
                             <th><a class="btn btn-primary"
-                                    href="update_profe.php?id=<?= $row['id'] //se envia el id a update?>">Editar</a></th>
+                                    href="update_nivel.php?id=<?= $row['id'] //se envia el id a update?>">Editar</a></th>
                             <th><a class="btn btn-danger"
-                                    href="php/delete_profe.php?id=<?= $row['id'] //se envia el id a delete?>" onclick="return confirm('Realmente quiere eliminar esta entrada? Los datos en el registro de notas pueden depender de esta.')">Eliminar</a></th>
+                                    href="php/delete_nivel.php?id=<?= $row['id'] //se envia el id a delete?>" onclick="return confirm('Realmente quiere eliminar esta entrada? Los datos en el registro de notas pueden depender de esta.')">Eliminar</a></th>
                             <?php $i++; ?>
                         </tr>
                     <?php endwhile; ?>

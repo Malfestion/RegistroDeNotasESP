@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
-    include "../db_conn.php";
+    include "db_conn.php";
 
     $id = null;
     $nombre_profesor = $_POST['nombre'];
