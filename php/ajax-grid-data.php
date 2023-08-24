@@ -85,7 +85,7 @@ while( $row=mysqli_fetch_array($query) ) {  // preparing an array
     $nestedData[] = $row["area"];
 	$nestedData[] = $row["nota"];
 	$nestedData[] = $row["profesor"];
-	$nestedData[] = '<a href="update_reg_anteriores.php?edit='.$row['edit'].'"  data-toggle="tooltip" title="Editar datos" class="btn btn-sm btn-info">Editar Registro #'.$row['edit'].' </a>';
+	$nestedData[] = '<a href="update_reg_anteriores.php?edit='.$row['edit'].'"  data-toggle="tooltip" title="Editar datos" class="btn btn-sm btn-link">Editar Registro #'.$row['edit'].' </a>';
 	
 	$data[] = $nestedData;
 }

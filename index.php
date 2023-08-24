@@ -119,7 +119,7 @@ include "layout/head.php";
                                     <?php $i++;
                         }
                     } else {
-                        echo ("<p class=\"text-danger\"> No se han encontrado resultados. Verifique los datos ingresados. </p> ");
+                        echo ("<p class=\"text-danger\"> No se han encontrado resultados del 2024 en adelante. Verifique los datos ingresados. </p> ");
                     }
                 } else {
                     echo ("<p class=\"text-danger\"> Ingrese un número de carné o número de cédula válido. </p> ");
@@ -127,6 +127,86 @@ include "layout/head.php";
                     <?php } ?>
                 </tbody>
             </table>
+
+
+            <?php
+            if (isset($_GET['enviar']) && !empty($_GET['busqueda']) && strlen($_GET['busqueda']) >= 6) { ?>
+                <table class="table table-dark table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Periodo</th>
+                            <th scope="col">Nivel</th>
+                            <th scope="col">Grupo</th>
+                            <th scope="col">Profesor</th>
+                            <th scope="col">Nota</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php }
+            if (isset($_GET['enviar'])) {
+
+                $busqueda = $_GET['busqueda'];
+                $busqueda = str_replace(
+                    array(
+                        '\'',
+                        '"',
+                        ',',
+                        ';',
+                        '<',
+                        '>',
+                        '?'
+                    ),
+                    '',
+                    $busqueda
+                );
+                if (!empty($busqueda) && strlen($busqueda) >= 6) { //solo se muestran resultados si se hace una consulta con al menos 6 caracteres
+                    $consulta = $conn->query("SELECT * FROM datos   
+                    WHERE id LIKE '%$busqueda%' 
+                    ORDER BY periodo ASC"); //consulta completa a la BD con sus relaciones "join".
+                    if ($consulta->num_rows > 0) { //si existen resultados
+            
+                        $i = 1;
+                        while ($row = $consulta->fetch_array()) { //se muestran los resultados de la consulta?>
+                                    <tr>
+                                        <th scope="row">
+                                            <?= $i ?>
+                                        </th>
+                                        <td>
+                                            <?= $row['id'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $row['nombre'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $row['periodo'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $row['nivel'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $row['grupo'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $row['profesor'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $row['nota'] ?>
+                                        </td>
+                                    </tr>
+                                    <?php $i++;
+                        }
+                    } else {
+                        echo ("<p class=\"text-danger\"> No se han encontrado resultados previos a 2023 </p> ");
+                    }
+                }  ?>
+                    <?php } ?>
+                </tbody>
+            </table>
+
+
         </div>
     </div>
 
