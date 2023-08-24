@@ -13,16 +13,14 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
         <!DOCTYPE html>
         <html lang="es">
 
-        <head>
-                <title>Registro de notas ESP</title>
-                <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <link href="bootstrap5/css/bootstrap.min.css" rel="stylesheet">
-                <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-                <script src="bootstrap5/js/bootstrap.bundle.min.js"></script>
-        </head>
+        <?php
+        include "layout/head.php";
+        ?>
 
         <body>
+                <?php
+                include "layout/header.php";
+                ?>
                 <div class="container" style="margin-top: 80px; margin-bottom: 80px;">
                         <form action="php/edit_nivel.php" method="POST">
                                 <h1>Editar Nivel</h1>
@@ -40,6 +38,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                         </form>
 
                 </div>
+                <?php
+                include "layout/footer.php";
+                ?>
         </body>
 
         </html>

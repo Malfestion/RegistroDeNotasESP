@@ -1,4 +1,4 @@
-<?php  
+<?php
 
 $sname = "localhost";
 $uname = "root";
