@@ -90,18 +90,18 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                 <div class="mb-3  p-3">
                                         <label for="grupo" class="form-label">Grupo</label>
                                         <input type="text" class="form-control" id="grupo" name="grupo"
-                                                placeholder="Nombre del grupo"
+                                                placeholder="Nombre del grupo" maxlength="10"
                                                 value="<?= $row['nombre_grupo'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="periodo" class="form-label">Periodo Lectivo</label>
                                         <input type="text" class="form-control" id="periodo" name="periodo"
-                                                placeholder="Periodo Lectivo"
+                                                placeholder="Periodo Lectivo" maxlength="30"
                                                 value="<?= $row['periodo'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="tel" class="form-label">Nota</label>
-                                        <input type="text" class="form-control" id="nota" name="nota" placeholder="Nota"
+                                        <input type="number" class="form-control" id="nota" name="nota" placeholder="Nota"
                                                 value="<?= $row['nota'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
                                 <input type="submit" class="btn btn-primary" style="margin-left: 15px;"

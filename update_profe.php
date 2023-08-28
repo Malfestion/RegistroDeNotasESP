@@ -31,18 +31,18 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                 <div class="mb-3 p-3">
                                         <label for="name" class="form-label">Nombre</label>
                                         <input type="text" class="form-control" id="name" name="nombre"
-                                                placeholder="Nombre Completo"
+                                                placeholder="Nombre Completo" maxlength="50"
                                                 value="<?= $row['nombre_profesor'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="email" class="form-label">Correo Institucional</label>
-                                        <input type="email" class="form-control" id="email" name="correo"
+                                        <input type="email" class="form-control" id="email" name="correo" maxlength="50"
                                                 placeholder="Correo ucr.ac.cr" value="<?= $row['correo_profesor'] ?>">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="tel" class="form-label">Número de Teléfono</label>
                                         <input type="number" class="form-control" id="tel" name="telefono"
-                                                placeholder="Extension de oficina o # de celular"
+                                                placeholder="Extension de oficina o # de celular" maxlength="8"
                                                 value="<?= $row['telefono_profesor'] ?>">
                                 </div>
                                 <input type="submit" class="btn btn-primary" style="margin-left: 15px;"

@@ -32,7 +32,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                 <div class="mb-3 p-3">
                     <label for="name" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="name" name="nombre" placeholder="Nombre del nivel"
-                        required="required">
+                        required="required" maxlength="30">
                 </div>
                 <input type="submit" class="btn btn-primary" style="margin-left: 15px;" value="Agregar nivel a la Lista">
 

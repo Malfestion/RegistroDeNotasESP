@@ -31,7 +31,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                 <div class="mb-3 p-3">
                                         <label for="name" class="form-label">Nombre</label>
                                         <input type="text" class="form-control" id="name" name="nombre"
-                                                placeholder="Nombre Completo"
+                                                placeholder="Nombre Completo" maxlength="25"
                                                 value="<?= $row['nombre_area'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
                                 <input type="submit" class="btn btn-primary" style="margin-left: 15px;"

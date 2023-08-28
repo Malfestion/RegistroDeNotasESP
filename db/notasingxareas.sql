@@ -79,7 +79,7 @@ COLLATE = utf8mb4_eo_0900_ai_ci;
 
 CREATE TABLE ingxareas.area (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  nombre_area varchar(20)
+  nombre_area varchar(25)
 )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -88,7 +88,7 @@ COLLATE = utf8mb4_eo_0900_ai_ci;
 
 CREATE TABLE ingxareas.nivel (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  nombre_nivel varchar(20)
+  nombre_nivel varchar(30)
 )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4

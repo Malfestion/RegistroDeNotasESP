@@ -34,43 +34,43 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                 </div>
                                 <div class="mb-3 p-3">
                                         <label for="id" class="form-label">Carné o Cédula</label>
-                                        <input type="text" class="form-control" id="id" name="id" placeholder="Carné o Cédula"
+                                        <input type="text" class="form-control" id="id" name="id" placeholder="Carné o Cédula" maxlength="14"
                                                 value="<?= $row['id'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
                                 <div class="mb-3 p-3">
                                         <label for="name" class="form-label">Nombre</label>
-                                        <input type="text" class="form-control" id="name" name="name"
+                                        <input type="text" class="form-control" id="name" name="name" maxlength="50"
                                                 placeholder="Nombre Completo"
                                                 value="<?= $row['nombre'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="periodo" class="form-label">Periodo</label>
-                                        <input type="text" class="form-control" id="periodo" name="periodo"
+                                        <input type="text" class="form-control" id="periodo" name="periodo" maxlength="20"
                                                 placeholder="Periodo" value="<?= $row['periodo'] ?>">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="nivel" class="form-label">Nivel</label>
-                                        <input type="text" class="form-control" id="nivel" name="nivel" placeholder="Nivel"
+                                        <input type="text" class="form-control" id="nivel" name="nivel" placeholder="Nivel" maxlength="50"
                                                 value="<?= $row['nivel'] ?>">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="grupo" class="form-label">Grupo</label>
-                                        <input type="text" class="form-control" id="grupo" name="grupo" placeholder="Grupo"
+                                        <input type="text" class="form-control" id="grupo" name="grupo" placeholder="Grupo" maxlength="10"
                                                 value="<?= $row['grupo'] ?>">
                                 </div>
                                 <div class="mb-3  p-3">
-                                        <label for="area" class="form-label">Area</label>
-                                        <input type="text" class="form-control" id="area" name="area" placeholder="Area"
+                                        <label for="area" class="form-label">Area</label> 
+                                        <input type="text" class="form-control" id="area" name="area" placeholder="Area" maxlength="50"
                                                 value="<?= $row['area'] ?>">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="nota" class="form-label">Nota</label>
-                                        <input type="text" class="form-control" id="nota" name="nota" placeholder="Nota"
+                                        <input type="text" class="form-control" id="nota" name="nota" placeholder="Nota" maxlength="4"
                                                 value="<?= $row['nota'] ?>">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="profesor" class="form-label">Profesor</label>
-                                        <input type="text" class="form-control" id="niprofesorvel" name="profesor"
+                                        <input type="text" class="form-control" id="niprofesorvel" name="profesor" maxlength="50"
                                                 placeholder="Profesor" value="<?= $row['profesor'] ?>">
                                 </div>
 
