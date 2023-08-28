@@ -1,8 +1,7 @@
-<!--
+<?php
 // (c) 2023 Alejandro Duarte Lobo
 // This code is licensed under BSD 3-Clause License (see LICENSE for details)
--->
-<?php
+
 //se inicia la sesion o se resume la anteriormente iniciada
 session_start();
 //se incluye el script de conexion con la BD para usar la variable conn
