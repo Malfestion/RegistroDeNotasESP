@@ -1,3 +1,7 @@
+<!--
+// (c) 2023 Alejandro Duarte Lobo
+// This code is licensed under BSD 3-Clause License (see LICENSE for details)
+-->
 <?php
 //se inicia o resume sesion y si el rol es admin se realiza el update del elemento en la bd, con el ID enviado desde el formulario anterior $_POST['id']
 session_start();

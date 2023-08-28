@@ -1,10 +1,14 @@
+<!--
+// (c) 2023 Alejandro Duarte Lobo
+// This code is licensed under BSD 3-Clause License (see LICENSE for details)
+-->
 <?php
 //se inicia sesion y se verifica si el rol es admin
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
         include "php/db_conn.php";
         //se consiguie el id del estudiante enviado para editar y se busca en la bd
-        $id=$_GET['edit'];
+        $id = $_GET['edit'];
         $sql = "SELECT * FROM datos WHERE edit='$id'";
         $query = mysqli_query($conn, $sql);
         $row = $row = mysqli_fetch_array($query);
@@ -31,8 +35,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                 </div>
                                 <div class="mb-3 p-3">
                                         <label for="id" class="form-label">Carné o Cédula</label>
-                                        <input type="text" class="form-control" id="id" name="id"
-                                                placeholder="Carné o Cédula"
+                                        <input type="text" class="form-control" id="id" name="id" placeholder="Carné o Cédula"
                                                 value="<?= $row['id'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
                                 <div class="mb-3 p-3">
@@ -48,33 +51,28 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="nivel" class="form-label">Nivel</label>
-                                        <input type="text" class="form-control" id="nivel" name="nivel"
-                                                placeholder="Nivel"
+                                        <input type="text" class="form-control" id="nivel" name="nivel" placeholder="Nivel"
                                                 value="<?= $row['nivel'] ?>">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="grupo" class="form-label">Grupo</label>
-                                        <input type="text" class="form-control" id="grupo" name="grupo"
-                                                placeholder="Grupo"
+                                        <input type="text" class="form-control" id="grupo" name="grupo" placeholder="Grupo"
                                                 value="<?= $row['grupo'] ?>">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="area" class="form-label">Area</label>
-                                        <input type="text" class="form-control" id="area" name="area"
-                                                placeholder="Area"
+                                        <input type="text" class="form-control" id="area" name="area" placeholder="Area"
                                                 value="<?= $row['area'] ?>">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="nota" class="form-label">Nota</label>
-                                        <input type="text" class="form-control" id="nota" name="nota"
-                                                placeholder="Nota"
+                                        <input type="text" class="form-control" id="nota" name="nota" placeholder="Nota"
                                                 value="<?= $row['nota'] ?>">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="profesor" class="form-label">Profesor</label>
                                         <input type="text" class="form-control" id="niprofesorvel" name="profesor"
-                                                placeholder="Profesor"
-                                                value="<?= $row['profesor'] ?>">
+                                                placeholder="Profesor" value="<?= $row['profesor'] ?>">
                                 </div>
 
 
