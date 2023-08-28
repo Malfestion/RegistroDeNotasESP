@@ -17,7 +17,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
     $sql = "INSERT INTO notas (id_estudiante, id_area, id_profesor, id_nivel, nombre_grupo, periodo, nota) VALUES('$id_estudiante','$id_area','$id_profesor','$id_nivel','$nombre_grupo','$periodo','$nota')";
     $query = mysqli_query($conn, $sql);
     if ($query) {
-        Header("Location: ../estudiantes.php");
+        Header("Location: ../notas.php");
     }
     ;
 }
