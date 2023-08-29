@@ -51,17 +51,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
         <div class="container" style="margin-bottom: 80px;">
             <h2>Docentes en la lista</h2>
             <br>
-
-            <form action="" method="get" style="display: flex;">
-                <input class="form-control" type="search" name="busqueda" style="width: 500px;" value="<?php if (!empty($_GET['busqueda'])) {
-                    echo $_GET['busqueda']; //se mantiene el valor de la busqueda
-            
-                } ?>" placeholder="Busqueda por nombre" aria-label="Search">
-                <button class="btn btn-primary" type="submit" name="enviar" value="Buscar">Buscar</button>
-            </form>
-
-            <br>
-            <table class="table table-striped table-hover">
+            <table id="tabla-profes" class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -75,13 +65,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                 <tbody>
                     <tr>
                         <?php $i = 1;
-                        $busqueda = "";
-                        if (isset($_GET['enviar'])) { //al buscar se muestran los valores en contrados pero aqui se muestran todos si la busqueda es vacia
-                    
-                            $busqueda = $_GET['busqueda'];
-                        }
-                        $consulta = $conn->query("SELECT * FROM profesor WHERE nombre_profesor LIKE '%$busqueda%'");
-                        while ( /*$row = mysqli_fetch_array($query))*/$row = $consulta->fetch_array()): ?>
+                        while ( $row = mysqli_fetch_array($query)): ?>
                             <th>
                                 <?= $i ?>
                             </th>
@@ -112,6 +96,15 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
         include "layout/footer.php";
         ?>
         <script type="text/javascript" src="js/maintainscroll.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#tabla-profes').DataTable({
+                    "oLanguage": {
+                        "sSearch": "Busqueda por nombre:"
+                    }
+                });
+            }); 
+        </script>
     </body>
 
     </html>
