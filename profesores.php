@@ -7,7 +7,7 @@ session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
     include "php/db_conn.php";
     //se buscan todos los profesores
-    $sql = "SELECT * FROM profesor";
+    $sql = "SELECT * FROM profesor ORDER BY nombre_profesor;";
     $query = mysqli_query($conn, $sql);
     ?>
 
