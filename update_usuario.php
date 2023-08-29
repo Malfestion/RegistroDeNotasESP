@@ -39,7 +39,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                 </div>
                                 <div class="mb-3 p-3">
                                         <label for="username" class="form-label">Nombre de Usuario</label>
-                                        <input type="text" class="form-control" id="username" name="username" maxlength="20"
+                                        <input type="text" class="form-control" id="username" name="username" maxlength="25"
                                                 placeholder="Nombre de usuario"
                                                 value="<?= $row['username'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
