@@ -59,6 +59,8 @@ CREATE TABLE ingxareas.estudiante (
   nombre_estudiante varchar(50),
   correo_estudiante varchar(50),
   telefono_estudiante varchar(8),
+  carrera_1 varchar(50),
+  carrera_2 varchar(50),
   estado_estudiante varchar(5)
 )
 ENGINE = InnoDB
