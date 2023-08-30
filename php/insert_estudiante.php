@@ -10,9 +10,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
     $nombre_estudiante = $_POST['nombre'];
     $correo_estudiante = $_POST['correo'];
     $telefono_estudiante = $_POST['telefono'];
+    $carrera_1 = $_POST['1career'];
+    $carrera_2 = $_POST['2career'];
     $estado_estudiante = $_POST['estado'];
 
-    $sql = "INSERT INTO estudiante (id, nombre_estudiante,correo_estudiante,telefono_estudiante,estado_estudiante) VALUES('$id','$nombre_estudiante','$correo_estudiante','$telefono_estudiante','$estado_estudiante')";
+    $sql = "INSERT INTO estudiante (id, nombre_estudiante,correo_estudiante,telefono_estudiante,carrera_1,carrera_2,estado_estudiante) VALUES('$id','$nombre_estudiante','$correo_estudiante','$telefono_estudiante','$carrera_1','$carrera_2','$estado_estudiante')";
     $query = mysqli_query($conn, $sql);
     if ($query) {
         Header("Location: ../estudiantes.php");

@@ -29,7 +29,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                 <h1>Editar Estudiante</h1>
                                 <div class="mb-3 p-3">
                                         <label for="name" class="form-label">ID</label>
-                                        <input type="text" class="form-control" id="id" name="id" readonly 
+                                        <input type="text" class="form-control" id="id" name="id" readonly
                                                 value="<?= $row['id'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
                                 <div class="mb-3 p-3">
@@ -58,8 +58,23 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                                 <option value="ACT">Activo</option>
                                                 <option value="RJ">Retiro Justificado</option>
                                                 <option value="RI">Retiro Injustificado</option>
+                                                <option value="FIN">Finalizado</option>
+                                                <option value="CONG">Congelado</option>
                                         </select>
                                 </div>
+
+                                <div class="mb-3  p-3">
+                                        <label for="1career" class="form-label">Carrera</label>
+                                        <input type="text" class="form-control" id="1career" name="1career"
+                                                placeholder="Carrera" maxlength="50" value="<?= $row['carrera_1'] ?>">
+                                </div>
+                                
+                                <div class="mb-3  p-3">
+                                        <label for="2career" class="form-label">Segunda Carrera</label>
+                                        <input type="text" class="form-control" id="2career" name="2career"
+                                                placeholder="2° Carrera (si aplica)" maxlength="50" value="<?= $row['carrera_2'] ?>">
+                                </div>
+
                                 <input type="submit" class="btn btn-primary" style="margin-left: 15px;"
                                         value="Actualizar informacion">
 

@@ -56,13 +56,24 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                             <option value="RJ">Retiro Justificado</option>
                             <option value="RI">Retiro Injustificado</option>
                             <option value="FIN">Finalizado</option>
+                            <option value="CONG">Congelado</option>
                         </select>
 
                     </div>
                 </div>
 
-
-
+                <div class="d-flex"> 
+                <div class="mb-3  p-3">
+                        <label for="1career" class="form-label">Carrera</label>
+                        <input type="text" class="form-control" id="1career" name="1career"
+                            placeholder="Carrera" maxlength="50">
+                    </div>
+                    <div class="mb-3  p-3">
+                        <label for="2career" class="form-label">Segunda Carrera</label>
+                        <input type="text" class="form-control" id="2career" name="2career"
+                            placeholder="2° Carrera (si aplica)" maxlength="50">
+                    </div>
+                </div>
                 <input type="submit" class="btn btn-primary" style="margin-left: 15px;"
                     value="Agregar Estudiante a la Lista">
 
@@ -90,6 +101,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                         <th>Nombre</th>
                         <th>Correo</th>
                         <th>Teléfono</th>
+                        <th>Carrera 1</th>
+                        <th>Carrera 2</th>
                         <th>Estado</th>
                         <th></th>
                         <th></th>
@@ -114,6 +127,12 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                             </th>
                             <th>
                                 <?= $row['telefono_estudiante'] ?>
+                            </th>
+                            <th>
+                                <?= $row['carrera_1'] ?>
+                            </th>
+                            <th>
+                                <?= $row['carrera_1'] ?>
                             </th>
                             <th>
                                 <?= $row['estado_estudiante'] ?>
