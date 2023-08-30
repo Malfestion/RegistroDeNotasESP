@@ -28,36 +28,41 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
             <h2>Agregar Estudiante</h2>
             <br>
             <form action="php/insert_estudiante.php" method="POST">
+                <div class="d-flex">
+                    <div class="mb-3 p-3">
+                        <label for="name" class="form-label">Carné/Cédula</label>
+                        <input type="text" class="form-control" id="id" name="id" placeholder="Identificación"
+                            required="required" maxlength="9">
+                    </div>
+                    <div class="mb-3 p-3">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="name" name="nombre" placeholder="Nombre Completo"
+                            required="required" maxlength="50">
+                    </div>
+                    <div class="mb-3  p-3">
+                        <label for="email" class="form-label">Correo Institucional</label>
+                        <input type="email" class="form-control" id="email" name="correo" placeholder="Correo @ucr.ac.cr"
+                            required="required" maxlength="50">
+                    </div>
+                    <div class="mb-3  p-3">
+                        <label for="tel" class="form-label">Número de Teléfono</label>
+                        <input type="number" class="form-control" id="tel" name="telefono"
+                            placeholder="Extension de oficina o # de celular" maxlength="8">
+                    </div>
+                    <div class="mb-3  p-3">
+                        <label for="estado" class="form-label">Estado del Estudiante</label>
+                        <select class="form-select" id="estado" name="estado">
+                            <option value="ACT">Activo</option>
+                            <option value="RJ">Retiro Justificado</option>
+                            <option value="RI">Retiro Injustificado</option>
+                            <option value="FIN">Finalizado</option>
+                        </select>
 
-                <div class="mb-3 p-3">
-                    <label for="name" class="form-label">Carné/Cédula</label>
-                    <input type="text" class="form-control" id="id" name="id" placeholder="Identificación"
-                        required="required" maxlength="9">
+                    </div>
                 </div>
-                <div class="mb-3 p-3">
-                    <label for="name" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="name" name="nombre" placeholder="Nombre Completo"
-                        required="required" maxlength="50">
-                </div>
-                <div class="mb-3  p-3">
-                    <label for="email" class="form-label">Correo Institucional</label>
-                    <input type="email" class="form-control" id="email" name="correo" placeholder="Correo @ucr.ac.cr"
-                        required="required" maxlength="50">
-                </div>
-                <div class="mb-3  p-3">
-                    <label for="tel" class="form-label">Número de Teléfono</label>
-                    <input type="number" class="form-control" id="tel" name="telefono"
-                        placeholder="Extension de oficina o # de celular" maxlength="8">
-                </div>
-                <div class="mb-3  p-3">
-                    <label for="estado" class="form-label">Estado del Estudiante</label>
-                    <select class="form-select" id="estado" name="estado">
-                        <option value="ACT">Activo</option>
-                        <option value="RJ">Retiro Justificado</option>
-                        <option value="RI">Retiro Injustificado</option>
-                    </select>
 
-                </div>
+
+
                 <input type="submit" class="btn btn-primary" style="margin-left: 15px;"
                     value="Agregar Estudiante a la Lista">
 

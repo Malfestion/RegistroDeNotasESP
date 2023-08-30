@@ -50,7 +50,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                 <div class="mb-3 p-3">
                     <label for="username" class="form-label">Nombre de usuario (login)</label>
                     <input type="text" class="form-control" id="username" name="username" placeholder="username"
-                        required="required" maxlength="20" >
+                        required="required" maxlength="25" >
                 </div>
 
                 <div class="mb-3  p-3">

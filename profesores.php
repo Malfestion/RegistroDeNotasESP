@@ -27,24 +27,26 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
             <h2>Agregar Docente</h2>
             <br>
             <form action="php/insert_profe.php" method="POST"><!--La accion de el submit del formulario es importante-->
+                <div class="d-flex">
+                    <div class="mb-3 p-3">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="name" name="nombre" placeholder="Nombre Completo"
+                            required="required" maxlength="50">
+                    </div>
+                    <div class="mb-3  p-3">
+                        <label for="email" class="form-label">Correo Institucional</label>
+                        <input type="email" class="form-control" id="email" name="correo" placeholder="Correo @ucr.ac.cr"
+                            required="required" maxlength="50">
+                    </div>
+                    <div class="mb-3  p-3">
+                        <label for="tel" class="form-label">Número de Teléfono</label>
+                        <input type="number" class="form-control" id="tel" name="telefono"
+                            placeholder="Extension de oficina o # de celular" maxlength="8">
+                    </div>
 
-                <div class="mb-3 p-3">
-                    <label for="name" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="name" name="nombre" placeholder="Nombre Completo"
-                        required="required" maxlength="50">
-                </div>
-                <div class="mb-3  p-3">
-                    <label for="email" class="form-label">Correo Institucional</label>
-                    <input type="email" class="form-control" id="email" name="correo" placeholder="Correo @ucr.ac.cr"
-                        required="required" maxlength="50">
-                </div>
-                <div class="mb-3  p-3">
-                    <label for="tel" class="form-label">Número de Teléfono</label>
-                    <input type="number" class="form-control" id="tel" name="telefono"
-                        placeholder="Extension de oficina o # de celular" maxlength="8">
+
                 </div>
                 <input type="submit" class="btn btn-primary" style="margin-left: 15px;" value="Agregar Profesor a la Lista">
-
             </form>
         </div>
         <br>
@@ -65,7 +67,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                 <tbody>
                     <tr>
                         <?php $i = 1;
-                        while ( $row = mysqli_fetch_array($query)): ?>
+                        while ($row = mysqli_fetch_array($query)): ?>
                             <th>
                                 <?= $i ?>
                             </th>
