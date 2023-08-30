@@ -132,7 +132,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                 <?= $row['carrera_1'] ?>
                             </th>
                             <th>
-                                <?= $row['carrera_1'] ?>
+                                <?= $row['carrera_2'] ?>
                             </th>
                             <th>
                                 <?= $row['estado_estudiante'] ?>
