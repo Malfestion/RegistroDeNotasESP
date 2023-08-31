@@ -20,6 +20,7 @@
                                 Administración
                             </a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="usuarios.php">Usuarios de la Página Web</a></li>
                                 <li><a class="dropdown-item" href="profesores.php">Profesores</a></li>
                                 <li><a class="dropdown-item" href="areas.php">Areas</a></li>
                                 <li><a class="dropdown-item" href="niveles.php">Niveles</a></li>
@@ -27,19 +28,17 @@
                                 <li><a class="dropdown-item text-warning" href="notas.php">Notas</a></li>
                             </ul>
                         </li>
+
+                    <?php } ?>
+                    <?php if (isset($_SESSION['username']) && isset($_SESSION['id']) && (($_SESSION['role'] == 'admin') || ($_SESSION['role'] == 'user'))) { //solo un usuario de tipo admin puede ver:?>
                         <li class="nav-item">
-                            <a class="nav-link" href="usuarios.php">Usuarios</a>
+                            <a class="nav-link" href="registro_grupal.php">Registrar Notas de grupo</a>
                         </li>
                     <?php } ?>
-                    <?php if (isset($_SESSION['username']) && isset($_SESSION['id']) && (($_SESSION['role'] == 'admin')||($_SESSION['role'] == 'user') ) ) { //solo un usuario de tipo admin puede ver:?>
+                    <?php if (isset($_SESSION['username']) && isset($_SESSION['id']) && (($_SESSION['role'] == 'admin') || ($_SESSION['role'] == 'user'))) { //solo un usuario de tipo admin puede ver:?>
                         <li class="nav-item">
-                        <a class="nav-link" href="registro_grupal.php">Registrar Notas de grupo</a>
-                    </li>
-                    <?php } ?>
-                    <?php if (isset($_SESSION['username']) && isset($_SESSION['id']) && (($_SESSION['role'] == 'admin')||($_SESSION['role'] == 'user') ) ) { //solo un usuario de tipo admin puede ver:?>
-                        <li class="nav-item">
-                        <a class="nav-link" href="notas.php">Mi Registro de Notas</a>
-                    </li>
+                            <a class="nav-link" href="notas.php">Mi Registro de Notas</a>
+                        </li>
                     <?php } ?>
 
                 </ul>
