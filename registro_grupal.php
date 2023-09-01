@@ -25,14 +25,21 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
             <h2>Agregar Grupo de estudiantes</h2>
             <br>
             <p>Herramienta para agregar notas de estudiantes a la base de datos al finalizar el ciclo lectivo.</p>
-            <p>El botón para agregar las notas a la Base de Datos se encuentra al final de la lista de estudiantes.</p>
-            <p>En caso de necesitar realizar cambios en un registro, contacte a la administración</p>
-            <p><b>Nota:</b> Puede dejar espacios de estudiante vacíos. En caso de dejar vacío el espacio de "estudiante" o
+            <ul>
+                <li><p>El botón para agregar las notas a la Base de Datos se encuentra al final de la lista de estudiantes.</p></li>
+                <li><p>En el caso en que el estudiante no desee continuar los cursos, quitar la marca de "continúa". Esto
+                    registrará automáticamente un Retiro Justificado en el sistema.</p></li>
+                    <li><p>En caso de necesitar realizar cambios en un registro (Puede revisarlos en la pestaña "Mi registro de
+                    notas"), contacte a la administración</p></li>
+            </ul>
+            <p><b>Nota:</b> Puede dejar espacios de estudiante vacíos. En caso de dejar vacío el espacio de "estudiante"
+                o
                 "nota" simplemente no se registrará en la base de datos.</p>
             <br>
             <hr>
             <h3>Información General del grupo:</h3>
-            <p><small><b>Estos campos son obligatorios.</b> Por favor llenarlos antes de continuar con las notas.</small></p>
+            <p><small><b>Estos campos son obligatorios.</b> Por favor llenarlos antes de continuar con las
+                    notas.</small></p>
             <form action="php/insert_nota_grupal.php" method="POST">
                 <div class="d-inline-flex">
                     <div class="mb-3  p-3">
@@ -94,7 +101,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
                 <input type="submit" class="btn btn-primary" style="margin-left: 15px;"
                     value="Agregar Notas a la Base de Datos"
                     onclick="return confirm('Realmente quiere registrar este grupo de notas?')">
-                <p class="text-secondary"><small><b>Recordatorio:Verificar que los datos estén correctos antes de registrarlos en la base de
+                <p class="text-secondary"><small><b>Recordatorio:Verificar que los datos estén correctos antes de
+                            registrarlos en la base de
                             datos.</b></small></p>
 
             </form>

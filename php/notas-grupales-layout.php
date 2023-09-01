@@ -14,7 +14,8 @@ $index = 0;
                 </h5>
                 <div class="mb-3  p-3 ">
                     <label for="estudiante-<?= $index ?>" class="form-label">ID:</label>
-                    <select class="select2-single" id="estudiante-<?= $index ?>" name="estudiante-<?= $index ?>" style="width: 120px;"> 
+                    <select class="select2-single" id="estudiante-<?= $index ?>" name="estudiante-<?= $index ?>"
+                        style="width: 120px;">
                         <option value=""></option>
                         <?php
                         $res_estudiante = mysqli_query($conn, "SELECT * FROM estudiante");
@@ -26,12 +27,13 @@ $index = 0;
                 </div>
                 <div class="mb-3  p-3 d-flex">
                     <label for="nota-<?= $index ?>" class="form-label">Nota:&nbsp;&nbsp; </label>
-                    <input type="text" class="form-control" id="nota-<?= $index ?>" name="nota-<?= $index ?>"
-                        placeholder="0-100" maxlength="3" style="height: 30px; width: 70px;">
+                    <input type="number" class="form-control" id="nota-<?= $index ?>" name="nota-<?= $index ?>"
+                        placeholder="0-100" maxlength="3" style="height: 30px; width: 75px;">
                 </div>
                 <div class="form-check" style="margin-top: 20px;">
                     <label class="form-check-label" for="flexCheckDefault">Continúa</label>
-                    <input class="form-check-input" type="checkbox" value="" id="Commitment">
+                    <input class="form-check-input" type="checkbox" value="SI" id="commitment-<?= $index ?>"
+                        name="commitment-<?= $index ?>" checked>
                 </div>
             </div>
         <?php endwhile; ?>
@@ -49,7 +51,8 @@ $index = 0;
                 </h5>
                 <div class="mb-3  p-3 ">
                     <label for="estudiante-<?= $index ?>" class="form-label">ID:</label>
-                    <select class="select2-single" id="estudiante-<?= $index ?>" name="estudiante-<?= $index ?>" style="width: 120px;">
+                    <select class="select2-single" id="estudiante-<?= $index ?>" name="estudiante-<?= $index ?>"
+                        style="width: 120px;">
                         <option value=""></option>
                         <?php
                         $res_estudiante = mysqli_query($conn, "SELECT * FROM estudiante");
@@ -61,12 +64,13 @@ $index = 0;
                 </div>
                 <div class="mb-3  p-3 d-flex">
                     <label for="nota-<?= $index ?>" class="form-label">Nota:&nbsp;&nbsp; </label>
-                    <input type="text" class="form-control" id="nota-<?= $index ?>" name="nota-<?= $index ?>"
-                        placeholder="0-100" maxlength="3" style="height: 30px; width: 70px;">
+                    <input type="number" class="form-control" id="nota-<?= $index ?>" name="nota-<?= $index ?>"
+                        placeholder="0-100" maxlength="3" style="height: 30px; width: 75px;">
                 </div>
                 <div class="form-check" style="margin-top: 20px;">
                     <label class="form-check-label" for="flexCheckDefault">Continúa</label>
-                    <input class="form-check-input" type="checkbox" value="" id="Commitment">
+                    <input class="form-check-input" type="checkbox" value="SI" name="commitment-<?= $index ?>"
+                        id="commitment-<?= $index ?>" checked>
                 </div>
             </div>
         <?php endwhile; ?>
