@@ -34,8 +34,9 @@ $index = 0;
                     <label class="form-check-label" for="flexCheckDefault">Continúa</label>
                     <input class="form-check-input" type="checkbox" value="SI" id="commitment-<?= $index ?>"
                         name="commitment-<?= $index ?>" checked>
-                </div>
+                    </div>
             </div>
+            <hr>
         <?php endwhile; ?>
 
     </div>
@@ -73,6 +74,7 @@ $index = 0;
                         id="commitment-<?= $index ?>" checked>
                 </div>
             </div>
+            <hr>
         <?php endwhile; ?>
     </div>
 </div>

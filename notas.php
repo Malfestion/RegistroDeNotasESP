@@ -166,6 +166,116 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
     </body>
 
     </html>
+<?php } else if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'user') {
+    include "php/db_conn.php";
+    $nombre_bd = $_SESSION['name'];
+    $sql = "SELECT * FROM profesor WHERE nombre_profesor LIKE '$nombre_bd' ";
+    $query = mysqli_query($conn, $sql);
+    if ($query->num_rows > 0) {
+        $row = mysqli_fetch_array($query);
+        $id_profesor = $row['id'];
+        $sql = "SELECT * FROM notas JOIN estudiante ON (estudiante.id = notas.id_estudiante)
+        JOIN area ON (area.id = notas.id_area) 
+        JOIN profesor ON (profesor.id = notas.id_profesor)
+        JOIN nivel ON (nivel.id = notas.id_nivel)   
+        WHERE id_profesor LIKE '$id_profesor' ";
+        $query = mysqli_query($conn, $sql);
+    } else {
+        $id_profesor = 1;
+        $sql = "SELECT * FROM notas 
+        JOIN estudiante ON (estudiante.id = notas.id_estudiante)
+            JOIN area ON (area.id = notas.id_area) 
+            JOIN profesor ON (profesor.id = notas.id_profesor)
+            JOIN nivel ON (nivel.id = notas.id_nivel) WHERE id_profesor LIKE '$id_profesor' ";
+        $query = mysqli_query($conn, $sql);
+    }
+
+    ?>
+        <!DOCTYPE html>
+        <html lang="es">
+
+        <?php
+        include "layout/head.php";
+        ?>
+
+        <body>
+            <?php
+            include "layout/header.php";
+            ?>
+
+            <div class="container" style="margin-bottom: 80px; margin-top: 80px;">
+                <h2>Registros de nota</h2>
+                <br>
+                <table id="tabla-notas-profe" class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Estado</th>
+                            <th>Area </th>
+                            <th>Profesor </th>
+                            <th>Nivel</th>
+                            <th>Grupo</th>
+                            <th>Periodo</th>
+                            <th>Nota</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $i = 1;
+                        while ($row = mysqli_fetch_array($query)): ?>
+                            <tr>
+
+                                <th>
+                                <?= $row['id_estudiante'] ?>
+                                </th>
+                                <th>
+                                <?= $row['nombre_estudiante'] ?>
+                                </th>
+                                <th>
+                                <?= $row['estado_estudiante'] ?>
+                                </th>
+                                <th>
+                                <?= $row['nombre_area'] ?>
+                                </th>
+                                <th>
+                                <?= $row['nombre_profesor'] ?>
+                                </th>
+                                <th>
+                                <?= $row['nombre_nivel'] ?>
+                                </th>
+                                <th>
+                                <?= $row['nombre_grupo'] ?>
+                                </th>
+                                <th>
+                                <?= $row['periodo'] ?>
+                                </th>
+                                <th>
+                                <?= $row['nota'] ?>
+                                </th>
+                            <?php $i++; ?>
+                            </tr>
+                    <?php endwhile; ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <?php
+            include "layout/footer.php";
+            ?>
+            <script>
+                $(document).ready(function () {
+                    $('#tabla-notas-profe').DataTable({
+                        "oLanguage": {
+                            "sSearch": "Buscar:"
+                        }
+                    });
+
+                });
+            </script>
+        </body>
+
+        </html>
 <?php } else {
     header("Location: login.php"); //si hay una sesion iniciada se reenvia a login
 } ?>
