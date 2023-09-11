@@ -110,10 +110,10 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <?php
+                <?php
                         $i = 1;
                         while ($row = mysqli_fetch_array($query)): ?>
+                    <tr>   
                             <th>
                                 <?= $i ?>
                             </th>
