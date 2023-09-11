@@ -40,6 +40,16 @@
                             <a class="nav-link" href="notas.php">Mi Registro de Notas</a>
                         </li>
                     <?php } ?>
+                    <?php if (isset($_SESSION['username']) && isset($_SESSION['id']) && (($_SESSION['role'] == 'admin')||($_SESSION['role'] == 'user') ) ) { //solo un usuario de tipo admin puede ver:?>
+                        <li class="nav-item">
+                        <a class="nav-link" href="registro_grupal.php">Registrar Notas de grupo</a>
+                    </li>
+                    <?php } ?>
+                    <?php if (isset($_SESSION['username']) && isset($_SESSION['id']) && (($_SESSION['role'] == 'admin')||($_SESSION['role'] == 'user') ) ) { //solo un usuario de tipo admin puede ver:?>
+                        <li class="nav-item">
+                        <a class="nav-link" href="notas.php">Mi Registro de Notas</a>
+                    </li>
+                    <?php } ?>
 
                 </ul>
                 <?php if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'user')) {
