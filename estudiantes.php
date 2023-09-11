@@ -104,6 +104,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                         <th>Carrera 1</th>
                         <th>Carrera 2</th>
                         <th>Estado</th>
+                        <th>Modificado</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -136,6 +137,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                             </th>
                             <th>
                                 <?= $row['estado_estudiante'] ?>
+                            </th>
+                            <th>
+                                <?= $row['estado_fecha'] ?>
                             </th>
                             <th><a class="btn btn-primary"
                                     href="update_estudiante.php?id=<?= $row['id'] //se envia el id a update?>">Editar</a></th>

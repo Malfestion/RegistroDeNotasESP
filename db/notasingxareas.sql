@@ -62,6 +62,7 @@ CREATE TABLE ingxareas.estudiante (
   carrera_1 varchar(50),
   carrera_2 varchar(50),
   estado_estudiante varchar(5)
+  estado_fecha date
 )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
