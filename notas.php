@@ -181,7 +181,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
         WHERE id_profesor LIKE '$id_profesor' ";
         $query = mysqli_query($conn, $sql);
     } else {
-        $id_profesor = 1;
+        $id_profesor = "--";
         $sql = "SELECT * FROM notas 
         JOIN estudiante ON (estudiante.id = notas.id_estudiante)
             JOIN area ON (area.id = notas.id_area) 
