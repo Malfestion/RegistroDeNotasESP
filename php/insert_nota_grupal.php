@@ -10,7 +10,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
     $id_nivel = $_POST['nivel'];
     $nombre_grupo = $_POST['nombre_grupo'];
     $periodo = $_POST['periodo'];
-
+    $estado_fecha=date("y-m-d");
+    
     $estudiantes = array();
     $notas = array();
     $commitments = array();
@@ -32,7 +33,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
         if ($estudiantes[$i] != "" && $notas[$i] != "") {
             $sql = $sql . "('" . $estudiantes[$i] . "','" . $id_area . "','" . $id_profesor . "','" . $id_nivel . "','" . $nombre_grupo . "','" . $periodo . "','" . $notas[$i] . "'),";
             if ($commitments[$i] == 'NO') {
-                $sql2 = "UPDATE estudiante SET estado_estudiante='RJ' WHERE id='$estudiantes[$i]' ";
+                $sql2 = "UPDATE estudiante SET estado_estudiante='RJ', estado_fecha='$estado_fecha' WHERE id='$estudiantes[$i]' ";
                 $query2 = mysqli_query($conn, $sql2);
             }
         }
