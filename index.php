@@ -122,10 +122,10 @@ include "layout/head.php";
                                     <?php $i++;
                         }
                     } else {
-                        echo ("<p class=\"text-danger\"> No se han encontrado resultados del 2024 en adelante. Verifique los datos ingresados. </p> ");
+                        echo ("<p class=\"text-secondary\"> No se han encontrado resultados del 2024 en adelante. Verifique los datos ingresados. </p> ");
                     }
                 } else {
-                    echo ("<p class=\"text-danger\"> Ingrese un número de carné o número de cédula válido. </p> ");
+                    echo ("<p class=\"text-secondary\"> Ingrese un número de carné o número de cédula válido. </p> ");
                 } ?>
                     <?php } ?>
                 </tbody>
