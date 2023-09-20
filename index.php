@@ -202,7 +202,7 @@ include "layout/head.php";
                                     <?php $i++;
                         }
                     } else {
-                        echo ("<p class=\"text-danger\"> No se han encontrado resultados previos a 2023 </p> ");
+                        echo ("<p class=\"text-secondary\"> No se han encontrado resultados previos a 2023 </p> ");
                     }
                 }  ?>
                     <?php } ?>
