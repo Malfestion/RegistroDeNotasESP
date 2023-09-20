@@ -15,7 +15,7 @@ include "php/db_conn.php";
 include "layout/head.php";
 ?>
 
-<body class=" bg-light " style="height: 85%; background-image: linear-gradient(to bottom, #ffffff, #0083b0);">
+<body class=" bg-light " style="height: 85%; background-image: url(img/bg.svg);">
     <?php
     include "layout/header.php";
     ?>
@@ -122,10 +122,10 @@ include "layout/head.php";
                                     <?php $i++;
                         }
                     } else {
-                        echo ("<p class=\"text-danger\"> No se han encontrado resultados del 2024 en adelante. Verifique los datos ingresados. </p> ");
+                        echo ("<p class=\"text-secondary\"> No se han encontrado resultados del 2024 en adelante. Verifique los datos ingresados. </p> ");
                     }
                 } else {
-                    echo ("<p class=\"text-danger\"> Ingrese un número de carné o número de cédula válido. </p> ");
+                    echo ("<p class=\"text-secondary\"> Ingrese un número de carné o número de cédula válido. </p> ");
                 } ?>
                     <?php } ?>
                 </tbody>
