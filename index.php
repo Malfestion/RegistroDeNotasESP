@@ -15,7 +15,7 @@ include "php/db_conn.php";
 include "layout/head.php";
 ?>
 
-<body class=" bg-light " style="height: 85%; background-image: url(img/bg.svg);">
+<body class=" bg-light " style="height: 85%; background: url(img/bg.svg); background-repeat: no-repeat; background-position:center; background-size: cover;">
     <?php
     include "layout/header.php";
     ?>
