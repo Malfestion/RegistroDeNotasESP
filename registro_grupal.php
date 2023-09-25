@@ -47,6 +47,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
                         <select class="form-select" id="profesor" name="profesor" required="required">
                             <?php
                             $nombre_bd = $_SESSION['name'];
+                            echo '<script>console.log("Nombre en la base de datos: '.$nombre_bd.'"); </script>';
                             $res_profesor = mysqli_query($conn, "SELECT * FROM profesor WHERE nombre_profesor = '$nombre_bd'");
                             if (mysqli_num_rows($res_profesor) != 0) { //Si el nombre de la cuenta coincide con algun profesor...
                                 $row_profesor = mysqli_fetch_array($res_profesor) ?>
