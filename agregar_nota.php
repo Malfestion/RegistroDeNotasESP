@@ -77,15 +77,15 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="grupo" class="form-label">Grupo</label>
-                                        <input type="text" class="form-control" id="grupo" name="grupo" placeholder="Nombre del grupo" required="required">
+                                        <input type="text" class="form-control" id="grupo" name="grupo" placeholder="Nombre del grupo" required="required"  maxlength="10">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="periodo" class="form-label">Periodo Lectivo</label>
-                                        <input type="text" class="form-control" id="periodo" name="periodo" placeholder="Periodo Lectivo" required="required">
+                                        <input type="text" class="form-control" id="periodo" name="periodo" placeholder="Periodo Lectivo" required="required"  maxlength="30">
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="tel" class="form-label">Nota</label>
-                                        <input type="text" class="form-control" id="nota" name="nota" placeholder="Nota" required="required"> 
+                                        <input type="number" class="form-control" id="nota" name="nota" placeholder="Nota 0-100" required="required" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="3"> 
                                 </div>
                                 <input type="submit" class="btn btn-primary" style="margin-left: 15px;"
                                         value="Agregar">

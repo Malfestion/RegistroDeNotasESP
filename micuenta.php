@@ -48,7 +48,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
                                 <div class="mb-3  p-3">
                                         <label for="password" class="form-label">Nueva Contraseña:</label>
                                         <input type="password" class="form-control" id="password" name="password"
-                                                maxlength="100" placeholder="Dejar vacío si no se hacen cambios">
+                                                maxlength="50" placeholder="Dejar vacío si no se hacen cambios">
                                 </div>
 
                                 <input type="submit" class="btn btn-primary" style="margin-left: 15px;"
