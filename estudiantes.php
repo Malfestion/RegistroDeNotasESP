@@ -47,7 +47,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                     <div class="mb-3  p-3">
                         <label for="tel" class="form-label">Número de Teléfono</label>
                         <input type="number" class="form-control" id="tel" name="telefono"
-                            placeholder="Extension de oficina o # de celular" maxlength="8">
+                            placeholder="Extension de oficina o # de celular" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="8">
                     </div>
                     <div class="mb-3  p-3">
                         <label for="estado" class="form-label">Estado del Estudiante</label>
