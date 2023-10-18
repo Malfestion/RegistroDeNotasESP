@@ -66,7 +66,7 @@ if( !empty($requestData['columns'][0]['search']['value']) ){   //id
 			break;
 			default:
 				$sql.= $columns[$requestData['order'][$col]['column']]." ".$requestData['order'][$col]['dir'];
-		}
+		}//se puede borrar este switch
 		$sql.= ", ";	//Next order
 		$col++; 		//Next column
 	}

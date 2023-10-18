@@ -1,4 +1,5 @@
 <?php
+//Este programa muestra las dos columnas de formulario para ingresar las notas de máximo 31 estudiantes a la vez
 $index = 0;
 ?>
 <div class="d-flex">
