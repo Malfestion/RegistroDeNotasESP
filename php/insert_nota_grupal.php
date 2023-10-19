@@ -1,6 +1,8 @@
 <?php
 // (c) 2023 Alejandro Duarte Lobo
 // This code is licensed under BSD 3-Clause License (see LICENSE for details)
+
+//Se  insertan los elementos recuperados por POST a la base de datos
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role'] == 'admin') || ($_SESSION['role'] == 'user')) {
     include "db_conn.php";
@@ -18,7 +20,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
 
     $sql = "INSERT INTO notas (id_estudiante, id_area, id_profesor, id_nivel, nombre_grupo, periodo, nota) VALUES";
 
-
+    //Se Revisa el commitment de cada nota ingresada y se le da un valor en el arreglo de commmitments
     for ($i = 1; $i <= 31; $i++) {
         $estudiantes[] = $_POST['estudiante-' . $i];
         $notas[] = $_POST['nota-' . $i];
@@ -29,6 +31,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
         }
     }
 
+    //Segun el commitment se actualiza en la Base de datos de estudiantes a la vez que se actualiza el query de agregado de notas.
     for ($i = 0; $i < 31; $i++) {
         if ($estudiantes[$i] != "" && $notas[$i] != "") {
             $sql = $sql . "('" . $estudiantes[$i] . "','" . $id_area . "','" . $id_profesor . "','" . $id_nivel . "','" . $nombre_grupo . "','" . $periodo . "','" . $notas[$i] . "'),";
@@ -42,7 +45,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
     $sql = substr($sql, 0, -1);
     $query = mysqli_query($conn, $sql);
 
-
+//Se muestra una página con la informacion de los elementos agregados
     if ($query) {
         echo ("<!DOCTYPE html>
         <html lang=\"es\">
