@@ -16,11 +16,26 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
     $carrera_2 = $_POST['2career'];
     $estado_estudiante = $_POST['estado'];
 
-    $sql = "INSERT INTO estudiante (id, nombre_estudiante,correo_estudiante,telefono_estudiante,carrera_1,carrera_2,estado_estudiante) VALUES('$id','$nombre_estudiante','$correo_estudiante','$telefono_estudiante','$carrera_1','$carrera_2','$estado_estudiante')";
-    $query = mysqli_query($conn, $sql);
+
+    $query = "SELECT id FROM estudiante WHERE id = '$id'";
+
+    $result = $conn->query($query);
+
+    if ($result) {//Si ya existe el estudiante en la base de datos, muestra un mensaje de error, si no, agrega el estudiante a la base de datos.
+        if (mysqli_num_rows($result) > 0) {
+            echo '<h1 style="color:red;">ERROR!: Ya Existe un estudiante con este ID en la base de datos, Por favor intente de nuevo o contacte al administrador de la página</h1>';
+            $query=0;
+        } else {
+            $sql = "INSERT INTO estudiante (id, nombre_estudiante,correo_estudiante,telefono_estudiante,carrera_1,carrera_2,estado_estudiante) VALUES('$id','$nombre_estudiante','$correo_estudiante','$telefono_estudiante','$carrera_1','$carrera_2','$estado_estudiante')";
+            $query = mysqli_query($conn, $sql);
+        }
+    } else {
+        echo 'Error de Base de datos!';
+        $query=0;
+    }
+
+
     if ($query) {
         Header("Location: ../estudiantes.php");
-    }
-    ;
+    };
 }
-?>
