@@ -25,6 +25,7 @@
                                 <li><a class="dropdown-item" href="areas.php">Areas</a></li>
                                 <li><a class="dropdown-item" href="niveles.php">Niveles</a></li>
                                 <li><a class="dropdown-item" href="estudiantes.php">Estudiantes</a></li>
+                                <li><a class="dropdown-item" href="certificaciones.php">Certificaciones</a></li>
                                 <li><a class="dropdown-item text-warning" href="notas.php">Notas</a></li>
                             </ul>
                         </li>
