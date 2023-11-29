@@ -51,23 +51,23 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                 <div class="d-flex"> 
                 <div class="mb-3  p-3">
                         <label for="reading" class="form-label">Nota Reading</label>
-                        <input type="number" class="form-control" id="lectura" name="lectura"
-                            placeholder="Nota" maxlength="50">
+                        <input type="text" class="form-control" id="lectura" name="lectura"
+                            placeholder="Nota" maxlength="3">
                     </div>
                     <div class="mb-3  p-3">
                         <label for="listening" class="form-label">Nota Listening</label>
-                        <input type="number" class="form-control" id="escucha" name="escucha"
-                            placeholder="Nota" maxlength="50">
+                        <input type="text" class="form-control" id="escucha" name="escucha"
+                            placeholder="Nota" maxlength="3">
                     </div>
                     <div class="mb-3  p-3">
                         <label for="speaking" class="form-label">Nota Speaking</label>
-                        <input type="number" class="form-control" id="habla" name="habla"
-                            placeholder="Nota" maxlength="50">
+                        <input type="text" class="form-control" id="habla" name="habla"
+                            placeholder="Nota" maxlength="3">
                     </div>
                     <div class="mb-3  p-3">
                         <label for="writing" class="form-label">Nota Writing</label>
-                        <input type="number" class="form-control" id="escritura" name="escritura"
-                            placeholder="Nota" maxlength="50">
+                        <input type="text" class="form-control" id="escritura" name="escritura"
+                            placeholder="Nota" maxlength="3">
                     </div>
                 </div>
                 <input type="submit" class="btn btn-primary" style="margin-left: 15px;"
