@@ -36,25 +36,25 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                 </div>
                                 <div class="mb-3 p-3">
                                         <label for="name" class="form-label">Reading</label>
-                                        <input type="number" class="form-control" id="lectura" name="lectura" maxlength="3"
+                                        <input type="text" class="form-control" id="lectura" name="lectura" maxlength="3"
                                                 placeholder=""
                                                 value="<?= $row['lectura'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
                                 <div class="mb-3 p-3">
                                         <label for="name" class="form-label">Listening</label>
-                                        <input type="number" class="form-control" id="escucha" name="escucha" maxlength="3"
+                                        <input type="text" class="form-control" id="escucha" name="escucha" maxlength="3"
                                                 placeholder=""
                                                 value="<?= $row['escucha'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
                                 <div class="mb-3 p-3">
                                         <label for="name" class="form-label">Writing</label>
-                                        <input type="number" class="form-control" id="escritura" name="escritura" maxlength="3"
+                                        <input type="text" class="form-control" id="escritura" name="escritura" maxlength="3"
                                                 placeholder=""
                                                 value="<?= $row['escritura'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
                                 <div class="mb-3 p-3">
                                         <label for="name" class="form-label">Speaking</label>
-                                        <input type="number" class="form-control" id="habla" name="habla" maxlength="3"
+                                        <input type="text" class="form-control" id="habla" name="habla" maxlength="3"
                                                 placeholder=""
                                                 value="<?= $row['habla'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
