@@ -29,18 +29,16 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
             <br>
             <form action="php/insert_cert.php" method="POST">
                 <div class="d-flex">
-                    <div class="mb-3  p-3">
-                        <label for="id_estudiante" class="form-label">Estudiante</label>
-                            <select class="form-select select2-single" id="id_estudiante" name="id_estudiante">
-                                <?php
-                                    $res_estudiante = mysqli_query($conn, "SELECT * FROM estudiante");
-                                        while ($row_estudiante = mysqli_fetch_array($res_estudiante)): ?>
-                                            <option value="<?= $row_estudiante['id'] ?>"><?= $row_estudiante['id'] ?>
-                                            </option>
-                                        <?php endwhile; ?>
-                            </select>
+                <div class="mb-3  p-3">
+                        <label for="id_estudiante" class="form-label">ID del estudiante</label>
+                        <input type="text" class="form-control" id="id_estudiante" name="id_estudiante"
+                            placeholder="Carné o cédula" maxlength="9">
                     </div>
-                    
+                    <div class="mb-3  p-3">
+                        <label for="nombre_estudiante" class="form-label">Nombre del estudiante</label>
+                        <input type="text" class="form-control" id="nombre_estudiante" name="nombre_estudiante"
+                            placeholder="nombre completo" maxlength="100">
+                    </div>
                     <div class="mb-3  p-3">
                         <label for="text" class="form-label">Fecha o periodo de certifiación</label>
                         <input type="text" class="form-control" id="fecha_cert" name="fecha_cert" placeholder="fecha"

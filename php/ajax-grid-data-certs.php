@@ -27,7 +27,7 @@ $query=mysqli_query($conn, $sql) or die("ajax-grid-data-estudiantes.php: get all
 $totalData = mysqli_num_rows($query);
 $totalFiltered = $totalData;  // when there is no search parameter then total number rows = total number filtered rows.
 
-$sql = "SELECT * FROM calificaciones_cert JOIN estudiante ON (estudiante.id = calificaciones_cert.id_estudiante)";
+$sql = "SELECT * FROM calificaciones_cert";
 
 // getting records as per search parameters
 if( !empty($requestData['columns'][0]['search']['value']) ){   //id

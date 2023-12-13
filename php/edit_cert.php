@@ -8,6 +8,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
     include "db_conn.php";
     $id_cert = $_POST['id_cert'];
     $id_estudiante = $_POST['id_estudiante'];
+    $nombre_estudiante = $_POST['nombre_estudiante'];
     $lectura = $_POST['lectura'];
     $escucha = $_POST['escucha'];
     $escritura = $_POST['escritura'];
@@ -15,7 +16,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
     $fecha_cert = $_POST['fecha_cert'];
 
 
-    $sql = "UPDATE calificaciones_cert SET  id_estudiante='$id_estudiante', lectura='$lectura', escucha='$escucha', escritura='$escritura', habla='$habla', fecha_cert='$fecha_cert' WHERE id_cert='$id_cert' ";
+    $sql = "UPDATE calificaciones_cert SET  id_estudiante='$id_estudiante', nombre_estudiante='$nombre_estudiante', lectura='$lectura', escucha='$escucha', escritura='$escritura', habla='$habla', fecha_cert='$fecha_cert' WHERE id_cert='$id_cert' ";
     $query = mysqli_query($conn, $sql);
     if ($query) {
         Header("Location: ../certificaciones.php");
