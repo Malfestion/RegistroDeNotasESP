@@ -22,7 +22,7 @@ $columns = array(
 );
 
 // getting total number records without any search
-$sql = "SELECT id_estudiante FROM calificaciones_cert";
+$sql = "SELECT id_cert FROM calificaciones_cert";
 $query=mysqli_query($conn, $sql) or die("ajax-grid-data-estudiantes.php: get all data");
 $totalData = mysqli_num_rows($query);
 $totalFiltered = $totalData;  // when there is no search parameter then total number rows = total number filtered rows.
