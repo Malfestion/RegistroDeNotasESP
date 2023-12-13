@@ -31,8 +31,13 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                         value="<?= $row['id_cert'] //el id se deja como un valor oculto, para enviarlo al script del query?>">
                                 <div class="mb-3 p-3">
                                         <label for="name" class="form-label">ID</label>
-                                        <input type="text" class="form-control" id="id_estudiante" name="id_estudiante" readonly
+                                        <input type="text" class="form-control" id="id_estudiante" name="id_estudiante" 
                                                 value="<?= $row['id_estudiante'] //se muestran los datos existentes para qye se pueda editar?>">
+                                </div>
+                                <div class="mb-3 p-3">
+                                        <label for="name" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="id_estudiante" name="nombre_estudiante"
+                                                value="<?= $row['nombre_estudiante'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
                                 <div class="mb-3 p-3">
                                         <label for="name" class="form-label">Reading</label>

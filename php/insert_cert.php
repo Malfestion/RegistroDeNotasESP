@@ -9,6 +9,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
     include "db_conn.php";
 
     $id_estudiante = $_POST['id_estudiante'];
+    $nombre_estudiante = $_POST['nombre_estudiante'];
     $lectura = $_POST['lectura'];
     $escucha = $_POST['escucha'];
     $escritura = $_POST['escritura'];
@@ -18,7 +19,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
 
 
 
-    $sql = "INSERT INTO calificaciones_cert (id_estudiante, lectura,escucha,escritura,habla,fecha_cert) VALUES('$id_estudiante','$lectura','$escucha','$escritura','$habla','$fecha_cert')";
+    $sql = "INSERT INTO calificaciones_cert (id_estudiante, lectura,escucha,escritura,habla,fecha_cert) VALUES('$id_estudiante','$nombre_estudiante','$lectura','$escucha','$escritura','$habla','$fecha_cert')";
     $query = mysqli_query($conn, $sql);
 
 
