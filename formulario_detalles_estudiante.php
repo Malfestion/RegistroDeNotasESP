@@ -4,8 +4,12 @@
 
 //se inicia o resume sesion 
 session_start();
-if ('01' == DATE('m') || '07' == DATE('m')) { //Esto abre o cierra el formulario dependiendo de la fecha en que se esté, en este caso, el mes.
-    include "php/db_conn.php";
+
+include "php/db_conn.php";
+$sql = "SELECT estado FROM formulario_estado";
+$query = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($query);
+if ($row[0]==1) { //Esto abre o cierra el formulario dependiendo de la fecha en que se esté, en este caso, el mes.
     //se buscan todos los estudiantes
     $sql = "SELECT * FROM estudiante";
     $query = mysqli_query($conn, $sql);
