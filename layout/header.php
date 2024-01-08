@@ -31,6 +31,11 @@
                         </li>
 
                     <?php } ?>
+                    <?php if (isset($_SESSION['username']) && isset($_SESSION['id']) &&  ($_SESSION['role'] == 'admin')) { //solo un usuario de tipo user puede ver:?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="infoform.php">Formulario de inscripcion estudiantes</a>
+                        </li>
+                    <?php } ?>
                     <?php if (isset($_SESSION['username']) && isset($_SESSION['id']) &&  ($_SESSION['role'] == 'user') || ($_SESSION['role'] == 'admin')) { //solo un usuario de tipo user puede ver:?>
                         <li class="nav-item">
                             <a class="nav-link" href="registro_grupal.php">Registrar Notas de grupo</a>
