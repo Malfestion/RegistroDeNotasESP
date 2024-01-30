@@ -36,6 +36,11 @@ $index = 0;
                     <input class="form-check-input" type="checkbox" value="SI" id="commitment-<?= $index ?>"
                         name="commitment-<?= $index ?>" checked>
                     </div>
+                    <div class="form-check" style="margin-top: 20px;margin-left: 5px;">
+                    <label class="form-check-label text-danger" for="flexCheckDefault">Retiro Injustificado</label>
+                    <input class="form-check-input" type="checkbox" value="SI" id="ri-<?= $index ?>"
+                        name="ri-<?= $index ?>" >
+                    </div>
             </div>
             <hr>
         <?php endwhile; ?>
@@ -69,11 +74,16 @@ $index = 0;
                     <input type="number" class="form-control" id="nota-<?= $index ?>" name="nota-<?= $index ?>"
                         placeholder="0-100" maxlength="3" style="height: 30px; width: 90px;" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                 </div>
-                <div class="form-check" style="margin-top: 20px;">
+                <div class="form-check" style="margin-top: 20px; ">
                     <label class="form-check-label" for="flexCheckDefault">Continúa</label>
                     <input class="form-check-input" type="checkbox" value="SI" name="commitment-<?= $index ?>"
                         id="commitment-<?= $index ?>" checked>
                 </div>
+                <div class="form-check" style="margin-top: 20px;margin-left: 5px;">
+                    <label class="form-check-label text-danger" for="flexCheckDefault">Retiro Injustificado</label>
+                    <input class="form-check-input" type="checkbox" value="SI" id="ri-<?= $index ?>"
+                        name="ri-<?= $index ?>" >
+                    </div>
             </div>
             <hr>
         <?php endwhile; ?>
