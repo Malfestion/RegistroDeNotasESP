@@ -11,7 +11,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
     $id_profesor = $_POST['profesor'];
     $id_nivel = $_POST['nivel'];
     $nombre_grupo = $_POST['nombre_grupo'];
-    $periodo = $_POST['periodo'];
+    $periodo = ($_POST['periodo']).date("Y");
     $estado_fecha=date("y-m-d");
     
     $estudiantes = array();
