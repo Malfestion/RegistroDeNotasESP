@@ -44,7 +44,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
                 <div class="d-inline-flex">
                     <div class="mb-3  p-3">
                         <label for="profesor" class="form-label">Profesor</label>
-                        <select class="form-select" id="profesor" name="profesor" required="required">
+                        <br> 
+                        <select class="select2-single" id="profesor" name="profesor" required="required" style="width: 250px;">
                             <?php
                             $nombre_bd = $_SESSION['name'];
                             $res_profesor = mysqli_query($conn, "SELECT * FROM profesor WHERE REPLACE(nombre_profesor, ' ', '') = REPLACE('$nombre_bd', ' ', '')"); //se usa replace para ignorar espacios.
@@ -89,9 +90,12 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
                         </select>
                     </div>
                     <div class="mb-3  p-3">
-                        <label for="periodo" class="form-label">Periodo</label>
-                        <input type="text" class="form-control" id="periodo" name="periodo" placeholder="X Ciclo 202X"
-                            maxlength="50" required="required">
+                        <label for="periodo" class="form-label" >Periodo</label>
+                        <select class="form-select" aria-label="periodo" id="periodo" name="periodo" required="required">
+                            <option value="I Ciclo ">I Ciclo</option>
+                            <option value="II Ciclo ">II Ciclo</option>
+                            <option value="Verano ">Verano</option>
+                        </select>
                     </div>
                 </div>
                 <h3>Estudiantes:</h3>
