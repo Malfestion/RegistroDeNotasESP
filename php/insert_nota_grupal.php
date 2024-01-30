@@ -17,10 +17,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
     $estudiantes = array();
     $notas = array();
     $commitments = array();
+    $retiros = array();
 
     $sql = "INSERT INTO notas (id_estudiante, id_area, id_profesor, id_nivel, nombre_grupo, periodo, nota) VALUES";
 
-    //Se Revisa el commitment de cada nota ingresada y se le da un valor en el arreglo de commmitments
+    //Se Revisa el commitment y retiro de cada nota ingresada y se le da un valor en el arreglo de commmitments y de retiros
     for ($i = 1; $i <= 31; $i++) {
         $estudiantes[] = $_POST['estudiante-' . $i];
         $notas[] = $_POST['nota-' . $i];
@@ -30,13 +31,39 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
             $commitments[] = 'NO';
         }
     }
+    for ($i = 1; $i <= 31; $i++) {
+        $estudiantes[] = $_POST['estudiante-' . $i];
+        $notas[] = $_POST['nota-' . $i];
+        if (isset($_POST['ri-' . $i]) && $_POST['ri-' . $i] == 'SI') {
+            $retiros[] = 'SI';
+        } else {
+            $retiros[] = 'NO';
+        }
+    }
 
-    //Segun el commitment se actualiza en la Base de datos de estudiantes a la vez que se actualiza el query de agregado de notas.
+    //Segun el commitment y Retiros se actualiza en la Base de datos de estudiantes a la vez que se actualiza el query de agregado de notas.
+    
+    //El primer for recorre el arreglo y asigna nota 0 si existe un retiro inustificado
+    for ($i = 0; $i < 31; $i++) {
+        if ($estudiantes[$i] != "") {
+            if ($retiros[$i] == 'SI') {
+                $notas[$i]=0;
+            }
+        }
+    }
+    //El segundo For arma el query para ingresar las notas a la lista y cambia los estados a RI, RJ o ACT segun corresponda
     for ($i = 0; $i < 31; $i++) {
         if ($estudiantes[$i] != "" && $notas[$i] != "") {
             $sql = $sql . "('" . $estudiantes[$i] . "','" . $id_area . "','" . $id_profesor . "','" . $id_nivel . "','" . $nombre_grupo . "','" . $periodo . "','" . $notas[$i] . "'),";
             if ($commitments[$i] == 'NO') {
                 $sql2 = "UPDATE estudiante SET estado_estudiante='RJ', estado_fecha='$estado_fecha' WHERE id='$estudiantes[$i]' ";
+                $query2 = mysqli_query($conn, $sql2);
+            }else{
+                $sql2 = "UPDATE estudiante SET estado_estudiante='ACT', estado_fecha='$estado_fecha' WHERE id='$estudiantes[$i]' ";
+                $query2 = mysqli_query($conn, $sql2);
+            }
+            if ($retiros[$i] == 'SI') {
+                $sql2 = "UPDATE estudiante SET estado_estudiante='RI', estado_fecha='$estado_fecha' WHERE id='$estudiantes[$i]' ";
                 $query2 = mysqli_query($conn, $sql2);
             }
         }
@@ -55,9 +82,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
         echo ("<table class=\"table  table-striped  table-bordered\">
         <thead>
         <tr>
+          <th scope=\"col\">#</th>
           <th scope=\"col\">Estudiante</th>
           <th scope=\"col\">Nota</th>
           <th scope=\"col\">Continúa</th>
+          <th scope=\"col\">Retiro Injustificado</th>
         </tr>
         <tbody>
             
@@ -65,7 +94,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
 
         for ($i = 0; $i < 31; $i++) {
             if ($estudiantes[$i] != "" && $notas[$i] != "") {
-                echo ("<tr><td>" . $estudiantes[$i] . "</td><td>" . $notas[$i] . "</td><td>" . $commitments[$i] . "</td></tr>");
+                echo ("<tr><td>" . $i+1 . "</td><td>" . $estudiantes[$i] . "</td><td>" . $notas[$i] . "</td><td>" . $commitments[$i] . "</td><td>" . $retiros[$i] . "</td></tr>");
             }
         }
         echo ("</tbody></table>");

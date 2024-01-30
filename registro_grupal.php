@@ -27,9 +27,10 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
             <p>Herramienta para agregar notas de estudiantes a la base de datos al finalizar el ciclo lectivo.</p>
             <ul>
                 <li><p>El botón para agregar las notas a la Base de Datos se encuentra al final de esta lista para agregar notas de estudiantes.</p></li>
-                <li><p>En el caso en que el estudiante no desee continuar los cursos, quitar la marca de "continúa". Esto
+                <li><p>En el caso en que el estudiante no desee continuar los cursos, quitar la marca en el el checkbox de "Continúa". Esto
                     registrará automáticamente un Retiro Justificado en el sistema.</p></li>
-                    <li><p>En caso de necesitar realizar cambios en un registro (Puede revisarlos en la pestaña "Mi registro de
+                <li><p>El checkbox de "Retiro Injustificado" Sobreescribe el checkbox de "Continúa", registrando automáticamente un Retiro Injustificado en el sistema</p></li>    
+                <li><p>En caso de necesitar realizar cambios en un registro (Puede revisarlos en la pestaña "Mi registro de
                     notas"), contacte a la administración</p></li>
             </ul>
             <p><b>Nota:</b> Puede dejar espacios de estudiante vacíos. En caso de dejar vacío el espacio de "estudiante"
