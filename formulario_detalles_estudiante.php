@@ -54,11 +54,11 @@ if ($row[0]==1) { //Esto abre o cierra el formulario dependiendo de la fecha en 
             <form action="php/insert_estudiante_public.php" method="POST">
                 <div class="d-flex">
                     <div class="mb-3 p-3">
-                        <label for="name" class="form-label">Carné o Cédula en caso de funcionarios</label>
+                        <label for="name" class="form-label">Carné de estudiante o Cédula en caso de funcionarios</label>
                         <input type="text" class="form-control" id="id" name="id" placeholder="Identificación" required="required" maxlength="9">
                     </div>
                     <div class="mb-3 p-3">
-                        <label for="name" class="form-label">Nombre</label>
+                        <label for="name" class="form-label">Nombre y apellidos</label>
                         <input type="text" class="form-control" id="name" name="nombre" placeholder="Nombre Completo" required="required" maxlength="50">
                     </div>
                     <div class="mb-3  p-3">
@@ -88,7 +88,7 @@ if ($row[0]==1) { //Esto abre o cierra el formulario dependiendo de la fecha en 
                         <input type="text" class="form-control" id="1career" name="1career" placeholder="Carrera" maxlength="50" required="required">
                     </div>
                     <div class="mb-3  p-3">
-                        <label for="2career" class="form-label">Segunda Carrera</label>
+                        <label for="2career" class="form-label">Segunda Carrera (solo si aplica)</label>
                         <input type="text" class="form-control" id="2career" name="2career" placeholder="2° Carrera (si aplica)" maxlength="50">
                     </div>
                 </div>
