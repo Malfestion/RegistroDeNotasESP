@@ -53,7 +53,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
     }
     //El segundo For arma el query para ingresar las notas a la lista y cambia los estados a RI, RJ o ACT segun corresponda
     for ($i = 0; $i < 31; $i++) {
-        if ($estudiantes[$i] != "" && $notas[$i] != "") {
+        if ($estudiantes[$i] != "" && ($notas[$i]!='' ||$notas[0]==0 )) {
             $sql = $sql . "('" . $estudiantes[$i] . "','" . $id_area . "','" . $id_profesor . "','" . $id_nivel . "','" . $nombre_grupo . "','" . $periodo . "','" . $notas[$i] . "'),";
             if ($commitments[$i] == 'NO') {
                 $sql2 = "UPDATE estudiante SET estado_estudiante='RJ', estado_fecha='$estado_fecha' WHERE id='$estudiantes[$i]' ";
@@ -93,13 +93,19 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
         ");
 
         for ($i = 0; $i < 31; $i++) {
-            if ($estudiantes[$i] != "" && $notas[$i] != "") {
-                echo ("<tr><td>" . $i+1 . "</td><td>" . $estudiantes[$i] . "</td><td>" . $notas[$i] . "</td><td>" . $commitments[$i] . "</td><td>" . $retiros[$i] . "</td></tr>");
+            if ($estudiantes[$i] != "" && ($notas[$i]!='' ||$notas[0]==0 )) {
+                echo ("<tr><td>" . strval($i+1) . "</td><td>" . $estudiantes[$i] . "</td><td>" . $notas[$i] . "</td><td>" . $commitments[$i] . "</td><td>" . $retiros[$i] . "</td></tr>");
             }
         }
         echo ("</tbody></table>");
         echo ("<br><a class=\"btn btn-primary\" href=\"../notas.php\">Volver al registro de notas ESP</a>");
         echo ("</div>");
+        echo($sql);
+    }else{
+        //echo("<p>".$sql."</p>");
+        echo("<p>" .$conn->error."</p>");
+
+
     }
     ;
 }
