@@ -49,5 +49,12 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
         echo '<p>En caso de necesitar realizar cambios en sus datos, puede contactar a la administración: </p>';
         echo '<p>Teléfono: 2511-8449</p>';
         echo '<p>Correo: inglesxareas.elm@ucr.ac.cr</p>';
+
+        
+        $myfile = fopen("logsRegistroEstudiante.txt", "a") or die("Unable to open file!");
+        $txt =date("Y/m/d")." ".date("h:i:sa").":  ".$id." ".$nombre_estudiante." ".$correo_estudiante;
+        fwrite($myfile, "\n". $txt);
+        fclose($myfile);
+         
     };
 }
