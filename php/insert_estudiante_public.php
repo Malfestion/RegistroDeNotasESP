@@ -51,7 +51,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
         echo '<p>Correo: inglesxareas.elm@ucr.ac.cr</p>';
 
         
-        $myfile = fopen("logsRegistroEstudiante.txt", "a") or die("Unable to open file!");
+        $myfile = fopen("logsRegistroEstudiante.log", "a") or die("Unable to open file!");
         $txt =date("Y/m/d")." ".date("h:i:sa").":  ".$id." ".$nombre_estudiante." ".$correo_estudiante;
         fwrite($myfile, "\n". $txt);
         fclose($myfile);
