@@ -1,2 +1,3 @@
 php/db_conn.php
 php/logsRegistroEstudiante.txt
+*.log
