@@ -15,7 +15,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
     $carrera_1 = $_POST['1career'];
     $carrera_2 = $_POST['2career'];
     $estado_estudiante = $_POST['estado'];
-
+    $ip=$_SERVER['HTTP_CLIENT_IP'] 
+    ? : ($_SERVER['HTTP_X_FORWARDED_FOR'] 
+    ? : $_SERVER['REMOTE_ADDR']);
 
     $query = "SELECT id FROM estudiante WHERE id = '$id'";
 
@@ -27,6 +29,10 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
             echo '<p>Teléfono: 2511-8449</p>';
             echo '<p>Correo: inglesxareas.elm@ucr.ac.cr</p>';
             $query=0;
+            $myfile = fopen("logsRegistroEstudiante.log", "a") or die("Unable to open file!");
+            $txt ="intento fallido, registro existente: ".$ip;
+            fwrite($myfile, "\n". $txt);
+            fclose($myfile);
         } else {
             $sql = "INSERT INTO estudiante (id, nombre_estudiante,correo_estudiante,telefono_estudiante,carrera_1,carrera_2,estado_estudiante) VALUES('$id','$nombre_estudiante','$correo_estudiante','$telefono_estudiante','$carrera_1','$carrera_2','$estado_estudiante')";
             $query = mysqli_query($conn, $sql);
@@ -52,7 +58,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
 
         
         $myfile = fopen("logsRegistroEstudiante.log", "a") or die("Unable to open file!");
-        $txt =date("Y/m/d")." ".date("h:i:sa").":  ".$id." ".$nombre_estudiante." ".$correo_estudiante;
+        $txt =date("Y/m/d")." ".date("h:i:sa").":  ".$id." ".$nombre_estudiante." ".$correo_estudiante."  from: ".$ip;
         fwrite($myfile, "\n". $txt);
         fclose($myfile);
          
