@@ -30,7 +30,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
             echo '<p>Correo: inglesxareas.elm@ucr.ac.cr</p>';
             $query=0;
             $myfile = fopen("logsRegistroEstudiante.log", "a") or die("Unable to open file!");
-            $txt ="intento fallido, registro existente: ".$ip;
+            $txt =date("Y/m/d")." ".date("h:i:sa").":  intento fallido, registro existente  from: ".$ip;
             fwrite($myfile, "\n". $txt);
             fclose($myfile);
         } else {
