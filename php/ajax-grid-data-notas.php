@@ -42,7 +42,7 @@ $sql = "SELECT * FROM notas
 if( !empty($requestData['columns'][0]['search']['value']) ){   //id
     $sql.=" AND id_estudiante LIKE '".$requestData['columns'][0]['search']['value']."%' ";
 } if( !empty($requestData['columns'][1]['search']['value']) ){  //nombre
-    $sql.=" AND nombre_estudiante LIKE '".$requestData['columns'][1]['search']['value']."%' ";
+    $sql.=" AND nombre_estudiante LIKE '%".$requestData['columns'][1]['search']['value']."%' ";
 } if( !empty($requestData['columns'][2]['search']['value']) ){  //area
     $sql.=" AND nombre_area LIKE '".$requestData['columns'][2]['search']['value']."%' ";
 } if( !empty($requestData['columns'][3]['search']['value']) ){  //estado
