@@ -37,7 +37,7 @@ if ($row[0]==1) { //Esto abre o cierra el formulario dependiendo de la fecha en 
                     <p>Por favor asegurese de que los datos ingresados sean correctos antes de hacer el registro.</p>
                 </li>
                 <li>
-                    <p>En el espacio de "Carné o Cédula, por favor ingrese su carné en caso de ser estudiante. Si usted es un funcionario por favor ingrese su numero de cédula".</p>
+                    <p>En el espacio de "Carné o Cédula", por favor ingrese su carné en caso de ser estudiante. Si usted es un funcionario por favor ingrese su numero de cédula.</p>
                 </li>
                 <li>
                     <p>Ingrese el nombre de la carrera en la que está empadronado o su lugar de trabajo (en caso de funcionarios).</p>
@@ -54,8 +54,13 @@ if ($row[0]==1) { //Esto abre o cierra el formulario dependiendo de la fecha en 
             <form action="php/insert_estudiante_public.php" method="POST">
                 <div class="container">
                     <div class="mb-3 p-3">
-                        <label for="name" class="form-label">Carné de estudiante o Cédula en caso de funcionarios (<b>sin "-" ni espacios</b>):</label>
-                        <input type="text" class="form-control" id="id" name="id" placeholder="Identificación" required="required" maxlength="9" style="width: 200px;">
+                        <label for="name" class="form-label">
+                            <ul>
+                                <li>Si usted es estudiante universitario, ingrese su carnet de estudiante</li>
+                                <li>Si usted trabaja en la universidad, ingrese su numero de cédula(<b>sin "-" ni espacios</b>)</li>
+                            </ul>       
+                        </label>
+                        <input type="text" class="form-control" id="id" name="id" placeholder="Carnet" required="required" maxlength="9" style="width: 200px;">
                     </div>
                     <div class="mb-3 p-3">
                         <label for="name" class="form-label">Nombre y apellidos:</label>
@@ -79,6 +84,7 @@ if ($row[0]==1) { //Esto abre o cierra el formulario dependiendo de la fecha en 
                     </div>
                     <div class="mb-3  p-3">
                         <label for="1career" class="form-label">Carrera</label>
+                        <p><small><b>No</b> es necesario especificar Bachillerato, Licenciatura o énfasis </small></p>
                         <input type="text" class="form-control" id="1career" name="1career" placeholder="Carrera" maxlength="50" required="required" style="width: 300px;">
                     </div>
                     <div class="mb-3  p-3">
