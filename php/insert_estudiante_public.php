@@ -19,13 +19,19 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
     ? : ($_SERVER['HTTP_X_FORWARDED_FOR'] 
     ? : $_SERVER['REMOTE_ADDR']);
 
-    $query = "SELECT id FROM estudiante WHERE id = '$id'";
+    $query = "SELECT id, nombre_estudiante, carrera_1 FROM estudiante WHERE id = '$id'";
 
     $result = $conn->query($query);
 
     if ($result) {//Si ya existe el estudiante en la base de datos, muestra un mensaje de error, si no, agrega el estudiante a la base de datos.
         if (mysqli_num_rows($result) > 0) {
-            echo '<h1 style="color:red;">Ya Existe un estudiante con este Carnet en el sistema, Por favor intente de nuevo o contacte al administrador de la página</h1>';
+            $row = $result->fetch_array();
+            echo '<h1 style="color:red;">Ya Existe un estudiante con este Carnet en el sistema</h1>';
+            echo '<p><b>Datos existentes en el sistema:</b></p>';
+            echo '<p>&emsp;&emsp;<b>Identificación:</b> '.$row['id'].'</p>';
+            echo '<p>&emsp;&emsp;<b>Nombre:</b> '.$row['nombre_estudiante'].'</p>';
+            echo '<p>&emsp;&emsp;<b>Carrera:</b> '.$row['carrera_1'].'</p>';
+            echo '<p><b>Si esto es un error, o los datos no corresponden a los suyos, por favor intente de nuevo o contacte al administrador de la página:</b></p>';
             echo '<p>Teléfono: 2511-8449 / 2511-7245</p>';
             echo '<p>Correo: inglesxareas.elm@ucr.ac.cr</p>';
             $query=0;
