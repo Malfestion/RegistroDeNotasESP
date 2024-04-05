@@ -25,8 +25,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
 
     if ($result) {//Si ya existe el estudiante en la base de datos, muestra un mensaje de error, si no, agrega el estudiante a la base de datos.
         if (mysqli_num_rows($result) > 0) {
-            echo '<h1 style="color:red;">ERROR!: Ya Existe un estudiante con este Carné en el sistema, Por favor intente de nuevo o contacte al administrador de la página</h1>';
-            echo '<p>Teléfono: 2511-8449</p>';
+            echo '<h1 style="color:red;">Ya Existe un estudiante con este Carnet en el sistema, Por favor intente de nuevo o contacte al administrador de la página</h1>';
+            echo '<p>Teléfono: 2511-8449 / 2511-7245</p>';
             echo '<p>Correo: inglesxareas.elm@ucr.ac.cr</p>';
             $query=0;
             $myfile = fopen("logsRegistroEstudiante.log", "a") or die("Unable to open file!");

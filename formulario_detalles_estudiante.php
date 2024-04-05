@@ -37,7 +37,7 @@ if ($row[0]==1) { //Esto abre o cierra el formulario dependiendo de la fecha en 
                     <p>Por favor asegurese de que los datos ingresados sean correctos antes de hacer el registro.</p>
                 </li>
                 <li>
-                    <p>En el espacio de "Carné o Cédula", por favor ingrese su carné en caso de ser estudiante. Si usted es un funcionario por favor ingrese su numero de cédula.</p>
+                    <p>En el espacio de "Carné o Cédula", por favor ingrese su carné en caso de ser estudiante. Si usted es un funcionario por favor ingrese su número de cédula.</p>
                 </li>
                 <li>
                     <p>Ingrese el nombre de la carrera en la que está empadronado o su lugar de trabajo (en caso de funcionarios).</p>
