@@ -83,9 +83,9 @@ if ($row[0]==1) { //Esto abre o cierra el formulario dependiendo de la fecha en 
 
                     </div>
                     <div class="mb-3  p-3">
-                        <label for="1career" class="form-label">Carrera</label>
+                        <label for="1career" class="form-label">Carrera o lugar de trabajo</label>
                         <p><small><b>No</b> es necesario especificar Bachillerato, Licenciatura o énfasis </small></p>
-                        <input type="text" class="form-control" id="1career" name="1career" placeholder="Carrera" maxlength="50" required="required" style="width: 300px;">
+                        <input type="text" class="form-control" id="1career" name="1career" placeholder="Carrera o lugar de trabajo" maxlength="50" required="required" style="width: 300px;">
                     </div>
                     <div class="mb-3  p-3">
                         <label for="2career" class="form-label">Segunda Carrera (solo si aplica)</label>
