@@ -3,9 +3,7 @@
 // This code is licensed under BSD 3-Clause License (see LICENSE for details) 
 session_start();
 include "db_conn.php";
-$ip=$_SERVER['HTTP_CLIENT_IP'] 
-    ? : ($_SERVER['HTTP_X_FORWARDED_FOR'] 
-    ? : $_SERVER['REMOTE_ADDR']);
+include "logging.php";
 
 if (isset($_POST['username']) && isset($_POST['password']) /*&& isset($_POST['role'])*/) {
 
@@ -42,25 +40,14 @@ if (isset($_POST['username']) && isset($_POST['password']) /*&& isset($_POST['ro
         		$_SESSION['username'] = $row['username'];
 
         		header("Location: ../index.php");
-
-				$myfile = fopen("logsLogin.log", "a") or die("Unable to open file!");
-        		$txt =date("Y/m/d")." ".date("h:i:sa").":  Nuevo Login Exitoso de ".$username. " from: ".$ip;
-        		fwrite($myfile, "\n". $txt);
-        		fclose($myfile);
+				writeLog("logsLogin.log", date("Y/m/d")." ".date("h:i:sa").":  Nuevo Login Exitoso de ".$username. " from: ".$ip);
 
         	}else {
-				$myfile = fopen("logsLogin.log", "a") or die("Unable to open file!");
-        		$txt =date("Y/m/d")." ".date("h:i:sa").":  Intento de Login Fallido de ".$username. " from: ".$ip;
-        		fwrite($myfile, "\n". $txt);
-        		fclose($myfile);
-
+				writeLog("logsLogin.log", date("Y/m/d")." ".date("h:i:sa").":  Intento de Login Fallido de ".$username. " from: ".$ip);
         		header("Location: ../login.php?error=Nombre de usuario o contraseña incorrecto.");
         	}
         }else {
-			$myfile = fopen("logsLogin.log", "a") or die("Unable to open file!");
-        	$txt =date("Y/m/d")." ".date("h:i:sa").":  Intento de Login Fallido de ".$username. " from: ".$ip;
-        	fwrite($myfile, "\n". $txt);
-        	fclose($myfile);
+			writeLog("logsLogin.log", date("Y/m/d")." ".date("h:i:sa").":  Intento de Login Fallido de ".$username. " from: ".$ip);
         	header("Location: ../login.php?error=Nombre de usuario o contraseña incorrecto.");
         }
 
