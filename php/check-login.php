@@ -40,14 +40,14 @@ if (isset($_POST['username']) && isset($_POST['password']) /*&& isset($_POST['ro
         		$_SESSION['username'] = $row['username'];
 
         		header("Location: ../index.php");
-				writeLog("logsLogin.log", date("Y/m/d")." ".date("h:i:sa").":  Nuevo Login Exitoso de ".$username. " from: ".$ip);
+				writeLog("logsLogin.log", "Nuevo Login Exitoso de ".$username. " from: ".$ip);
 
         	}else {
-				writeLog("logsLogin.log", date("Y/m/d")." ".date("h:i:sa").":  Intento de Login Fallido de ".$username. " from: ".$ip);
+				writeLog("logsLogin.log", "Intento de Login Fallido de ".$username. " from: ".$ip);
         		header("Location: ../login.php?error=Nombre de usuario o contraseña incorrecto.");
         	}
         }else {
-			writeLog("logsLogin.log", date("Y/m/d")." ".date("h:i:sa").":  Intento de Login Fallido de ".$username. " from: ".$ip);
+			writeLog("logsLogin.log", "Intento de Login Fallido de ".$username. " from: ".$ip);
         	header("Location: ../login.php?error=Nombre de usuario o contraseña incorrecto.");
         }
 
