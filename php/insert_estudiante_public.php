@@ -34,10 +34,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
             echo '<p>Teléfono: 2511-8449 / 2511-7245</p>';
             echo '<p>Correo: inglesxareas.elm@ucr.ac.cr</p>';
             $query=0;
-            $myfile = fopen("logsRegistroEstudiante.log", "a") or die("Unable to open file!");
-            $txt =date("Y/m/d")." ".date("h:i:sa").":  intento fallido, registro existente  from: ".$ip;
-            fwrite($myfile, "\n". $txt);
-            fclose($myfile);
+            writeLog("logsRegistroEstudiante.log", "intento fallido, registro existente  from: ".$ip);
         } else {
             $sql = "INSERT INTO estudiante (id, nombre_estudiante,correo_estudiante,telefono_estudiante,carrera_1,carrera_2,estado_estudiante) VALUES('$id','$nombre_estudiante','$correo_estudiante','$telefono_estudiante','$carrera_1','$carrera_2','$estado_estudiante')";
             $query = mysqli_query($conn, $sql);
@@ -61,7 +58,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
         echo '<p>Teléfono: 2511-8449</p>';
         echo '<p>Correo: inglesxareas.elm@ucr.ac.cr</p>';
 
-        writeLog("logsRegistroEstudiante.log",date("Y/m/d")." ".date("h:i:sa").":  ".$id." ".$nombre_estudiante." ".$correo_estudiante."  from: ".$ip);
+        writeLog("logsRegistroEstudiante.log", $id." ".$nombre_estudiante." ".$correo_estudiante."  from: ".$ip);
          
     };
 }

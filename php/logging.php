@@ -9,7 +9,7 @@ $ip=$_SERVER['HTTP_CLIENT_IP']
 
 function writeLog($path,$message) {
     $myfile = fopen($path, "a") or die("Unable to open file!");
-    fwrite($myfile, "\n". $message);
+    fwrite($myfile, date("Y/m/d")." ".date("h:i:sa").":  ". $message."\n");
     fclose($myfile);
 }
 ?>
