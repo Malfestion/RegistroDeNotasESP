@@ -116,7 +116,7 @@ include "layout/head.php";
                                             <?= $row['periodo'] ?>
                                         </td>
                                         <td>
-                                            <?= $row['nota'] ?>
+                                            <?= $row['nota']/10 ?>
                                         </td>
                                     </tr>
                                     <?php $i++;
