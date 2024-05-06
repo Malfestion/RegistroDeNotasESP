@@ -7,7 +7,8 @@
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
     include "db_conn.php";
-
+    include "logging.php";
+    
     $id = $_POST['id'];
     $nombre_estudiante = $_POST['nombre'];
     $correo_estudiante = $_POST['correo'];
@@ -36,6 +37,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
 
 
     if ($query) {
+        writeLog("logsWrite.log", $_SESSION['username']." Inserta nuevo estudiante ".$id."  from: ".$ip);
+
         Header("Location: ../estudiantes.php");
     };
 }

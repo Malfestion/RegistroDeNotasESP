@@ -6,6 +6,7 @@
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
     include "db_conn.php";
+    include "logging.php";
     $id = $_POST['id'];
     $name = $_POST['name'];
     $username = $_POST['username'];
@@ -19,6 +20,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
    
     $query = mysqli_query($conn, $sql);
     if ($query) {
+        writeLog("logsWrite.log", $_SESSION['username']." Edita usuario ".$id."  from: ".$ip);
+
         Header("Location: ../usuarios.php");
     }
     ;

@@ -7,6 +7,7 @@
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
     include "db_conn.php";
+    include "logging.php";
 
     $id = null;
     $nombre_nivel = $_POST['nombre'];
@@ -14,6 +15,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
     $sql = "INSERT INTO nivel (nombre_nivel) VALUES('$nombre_nivel')";
     $query = mysqli_query($conn, $sql);
     if ($query) {
+        writeLog("logsWrite.log", $_SESSION['username']."Inserta Nuevo nivel ".$nombre_nivel."  from: ".$ip);
+
         Header("Location: ../niveles.php");
     }
     ;

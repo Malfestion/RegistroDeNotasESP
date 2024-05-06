@@ -6,13 +6,16 @@
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
     include "db_conn.php";
-
+    include "logging.php";
+    
     $id = null;
     $nombre_area = $_POST['nombre'];
 
     $sql = "UPDATE formulario_estado SET estado = true WHERE 1=1";
     $query = mysqli_query($conn, $sql);
     if ($query) {
+        writeLog("logsWrite.log", $_SESSION['username']." Habilita Formulario de inscripcion de estudiantes "."  from: ".$ip);
+
         Header("Location: ../infoform.php");
     }
     ;

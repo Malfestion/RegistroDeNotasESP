@@ -6,6 +6,7 @@
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
     include "db_conn.php";
+    include "logging.php";
     $id = $_POST['id'];
     $nombre_estudiante = $_POST['nombre'];
     $correo_estudiante = $_POST['correo'];
@@ -18,6 +19,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
     $sql = "UPDATE estudiante SET nombre_estudiante='$nombre_estudiante', correo_estudiante='$correo_estudiante', telefono_estudiante='$telefono_estudiante', carrera_1='$carrera_1', carrera_2='$carrera_2', estado_estudiante='$estado_estudiante', estado_fecha='$estado_fecha' WHERE id='$id' ";
     $query = mysqli_query($conn, $sql);
     if ($query) {
+        writeLog("logsWrite.log", $_SESSION['username']." Edita estudiante ".$id."  from: ".$ip);
         Header("Location: ../estudiantes.php");
     }
     ;
