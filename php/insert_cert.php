@@ -7,6 +7,7 @@
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
     include "db_conn.php";
+    include "logging.php";
 
     $id_estudiante = $_POST['id_estudiante'];
     $nombre_estudiante = $_POST['nombre_estudiante'];
@@ -24,6 +25,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
 
 
     if ($query) {
+        writeLog("logsWrite.log", $_SESSION['username']." Inserta nueva Certificacion ".$id_estudiante." ".$fecha_cert."  from: ".$ip);
         Header("Location: ../certificaciones.php");
     };
 }

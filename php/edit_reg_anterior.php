@@ -6,6 +6,7 @@
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
     include "db_conn.php";
+    include "logging.php";
     $edit = $_POST['edit'];
     $id = $_POST['id'];
     $nombre = $_POST['name'];
@@ -19,6 +20,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
     $sql = "UPDATE datos SET id='$id', nombre='$nombre', periodo='$periodo', nivel='$nivel', grupo='$grupo', area='$area', nota='$nota', profesor='$profesor' WHERE edit='$edit' ";
     $query = mysqli_query($conn, $sql);
     if ($query) {
+        writeLog("logsWrite.log", $_SESSION['username']." Edita nota en BD anterior ".$edit."  from: ".$ip);
+
         Header("Location: ../registros_anteriores.php");
     }
     ;

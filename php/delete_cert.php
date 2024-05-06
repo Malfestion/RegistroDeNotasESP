@@ -6,12 +6,14 @@
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
     include "db_conn.php";
+    include "logging.php";
     $id_cert = $_GET['id_cert'];
 
     $sql = "DELETE FROM calificaciones_cert WHERE id_cert='$id_cert'";
 
     $query = mysqli_query($conn, $sql);
     if ($query) {
+        writeLog("logsWrite.log", $_SESSION['username']." Elimina Certificado ".$id_cert."  from: ".$ip);
         Header("Location: ../certificaciones.php");
     }
     ;

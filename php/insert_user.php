@@ -6,7 +6,8 @@
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
     include "db_conn.php";
-
+    include "logging.php";
+    
     $role = $_POST['role'];
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -15,6 +16,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
     $sql = "INSERT INTO users (role, username, password, name) VALUES('$role','$username', MD5('$password'),'$name')";
     $query = mysqli_query($conn, $sql);
     if ($query) {
+        writeLog("logsWrite.log", $_SESSION['username']."Inserta nuevo usuario ".$username."  from: ".$ip);
         Header("Location: ../usuarios.php");
     }
     ;

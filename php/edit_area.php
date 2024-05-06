@@ -6,12 +6,15 @@
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
     include "db_conn.php";
+    include "logging.php";
     $id = $_POST['id'];
     $nombre_area = $_POST['nombre'];
 
     $sql = "UPDATE area SET nombre_area='$nombre_area' WHERE id='$id' ";
     $query = mysqli_query($conn, $sql);
     if ($query) {
+        writeLog("logsWrite.log", $_SESSION['username']." Edita area ".$id."  from: ".$ip);
+
         Header("Location: ../areas.php");
     }
     ;

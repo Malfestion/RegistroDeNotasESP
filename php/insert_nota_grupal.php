@@ -6,6 +6,7 @@
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role'] == 'admin') || ($_SESSION['role'] == 'user')) {
     include "db_conn.php";
+    include "logging.php";
 
     $id_area = $_POST['area'];
     $id_profesor = $_POST['profesor'];
@@ -71,7 +72,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
 
     $sql = substr($sql, 0, -1);
     $query = mysqli_query($conn, $sql);
-
+    $cnt_estudiantes=0;
 //Se muestra una página con la informacion de los elementos agregados
     if ($query) {
         echo ("<!DOCTYPE html>
@@ -94,16 +95,20 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
 
         for ($i = 0; $i < 31; $i++) {
             if ($estudiantes[$i] != "" && ($notas[$i]!='' ||$notas[$i]==0 )) {
+                $cnt_estudiantes=$cnt_estudiantes+1;
                 echo ("<tr><td>" . strval($i+1) . "</td><td>" . $estudiantes[$i] . "</td><td>" . $notas[$i] . "</td><td>" . $commitments[$i] . "</td><td>" . $retiros[$i] . "</td></tr>");
             }
         }
         echo ("</tbody></table>");
         echo ("<br><a class=\"btn btn-primary\" href=\"../notas.php\">Volver al registro de notas ESP</a>");
         echo ("</div>");
+        writeLog("logsWrite.log", $_SESSION['username']." inserta notas grupales de ".$cnt_estudiantes." estudiantes  from: ".$ip);
+
     }else{
         //echo("<p>".$sql."</p>");
         echo("<p>" .$conn->error."</p>");
-
+        
+        writeLog("logsWrite.log", $_SESSION['username']." - Error en base de datos, insert_nota_grupal  from: ".$ip);
 
     }
     ;

@@ -6,12 +6,14 @@
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
     include "db_conn.php";
+    include "logging.php";
     $id = $_GET['id'];
 
     $sql = "DELETE FROM nivel WHERE id='$id'";
 
     $query = mysqli_query($conn, $sql);
     if ($query) {
+        writeLog("logsWrite.log", $_SESSION['username']." Elimina nivel ".$id."  from: ".$ip);
         Header("Location: ../niveles.php");
     }
     ;

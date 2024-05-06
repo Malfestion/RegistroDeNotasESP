@@ -6,6 +6,7 @@
 session_start();
 if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] == 'admin') {
     include "db_conn.php";
+    include "logging.php";
     $id_nota = $_POST['id'];
     $id_estudiante = $_POST['estudiante'];
     $id_area = $_POST['area'];
@@ -18,6 +19,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
     $sql = "UPDATE notas SET id_estudiante='$id_estudiante', id_area='$id_area', id_profesor='$id_profesor', id_nivel='$id_nivel', nombre_grupo='$nombre_grupo', periodo='$periodo', nota='$nota' WHERE id_nota='$id_nota' ";
     $query = mysqli_query($conn, $sql);
     if ($query) {
+        writeLog("logsWrite.log", $_SESSION['username']." edita nota ".$id_nota."  from: ".$ip);
+
         Header("Location: ../notas.php");
     }
     ;
