@@ -85,7 +85,7 @@ include "layout/head.php";
                     JOIN profesor ON (profesor.id = notas.id_profesor)
                     JOIN nivel ON (nivel.id = notas.id_nivel)   
                     WHERE id_estudiante LIKE '%$busqueda%'
-                    ORDER BY periodo ASC"); //consulta completa a la BD con sus relaciones "join".
+                    ORDER BY id_nota DESC"); //consulta completa a la BD con sus relaciones "join".
                     if ($consulta->num_rows > 0) { //si existen resultados
             
                         $i = 1;
@@ -169,7 +169,7 @@ include "layout/head.php";
                 if (!empty($busqueda) && strlen($busqueda) >= 6) { //solo se muestran resultados si se hace una consulta con al menos 6 caracteres
                     $consulta = $conn->query("SELECT * FROM datos   
                     WHERE id LIKE '%$busqueda%' 
-                    ORDER BY periodo ASC"); //consulta completa a la BD con sus relaciones "join".
+                    ORDER BY edit DESC"); //consulta completa a la BD con sus relaciones "join".
                     if ($consulta->num_rows > 0) { //si existen resultados
             
                         $i = 1;
