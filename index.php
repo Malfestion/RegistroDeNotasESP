@@ -50,7 +50,7 @@ include "layout/head.php";
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Carné</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Area</th>
                             <th scope="col">Profesor</th>
@@ -140,10 +140,11 @@ include "layout/head.php";
                             <th scope="col">#</th>
                             <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Periodo</th>
+                            <th scope="col">Area</th>
+                            <th scope="col">Profesor</th>
                             <th scope="col">Nivel</th>
                             <th scope="col">Grupo</th>
-                            <th scope="col">Profesor</th>
+                            <th scope="col">Periodo</th>
                             <th scope="col">Nota</th>
                         </tr>
                     </thead>
@@ -184,7 +185,10 @@ include "layout/head.php";
                                             <?= $row['nombre'] ?>
                                         </td>
                                         <td>
-                                            <?= $row['periodo'] ?>
+                                            <?= $row['area'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $row['profesor'] ?>
                                         </td>
                                         <td>
                                             <?= $row['nivel'] ?>
@@ -193,7 +197,7 @@ include "layout/head.php";
                                             <?= $row['grupo'] ?>
                                         </td>
                                         <td>
-                                            <?= $row['profesor'] ?>
+                                            <?= $row['periodo'] ?>
                                         </td>
                                         <td>
                                             <?= $row['nota'] ?>
