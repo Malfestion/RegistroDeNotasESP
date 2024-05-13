@@ -56,7 +56,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
     for ($i = 0; $i < 31; $i++) {
         if ($estudiantes[$i] != "" && ($notas[$i]!='' ||$notas[$i]==0 )) {
             $sql = $sql . "('" . $estudiantes[$i] . "','" . $id_area . "','" . $id_profesor . "','" . $id_nivel . "','" . $nombre_grupo . "','" . $periodo . "','" . $notas[$i] . "'),";
-            if ($commitments[$i] == 'NO') {
+            if ($commitments[$i] == 'SI') {
                 $sql2 = "UPDATE estudiante SET estado_estudiante='RJ', estado_fecha='$estado_fecha' WHERE id='$estudiantes[$i]' ";
                 $query2 = mysqli_query($conn, $sql2);
             }else{
@@ -86,7 +86,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
           <th scope=\"col\">#</th>
           <th scope=\"col\">Estudiante</th>
           <th scope=\"col\">Nota</th>
-          <th scope=\"col\">Continúa</th>
+          <th scope=\"col\">Retiro Justificado</th>
           <th scope=\"col\">Retiro Injustificado</th>
         </tr>
         <tbody>
@@ -108,7 +108,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
         //echo("<p>".$sql."</p>");
         echo("<p>" .$conn->error."</p>");
         
-        writeLog("logsWrite.log", $_SESSION['username']." - Error en base de datos, insert_nota_grupal  from: ".$ip);
+        writeLog("logsError.log", $_SESSION['username']." - Error en base de datos, insert_nota_grupal  from: ".$ip);
 
     }
     ;
