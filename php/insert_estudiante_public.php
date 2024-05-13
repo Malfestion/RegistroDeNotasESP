@@ -41,6 +41,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
         }
     } else {
         echo 'Error de Base de datos!';
+        writeLog("logsError.log", "Error al ingresar datos en la BD, insert_estudiante_public from: ".$ip);
         $query=0;
     }
 
@@ -55,7 +56,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
         echo '<p>Carrera  o lugar de trabajo: '.$carrera_1.'</p>';
         echo '<p>Segunda Carrera: '.$carrera_2.'</p>';
         echo '<p>En caso de necesitar realizar cambios en sus datos, puede contactar a la administración: </p>';
-        echo '<p>Teléfono: 2511-8449</p>';
+        echo '<p>Teléfono: 2511-7245</p>';
         echo '<p>Correo: inglesxareas.elm@ucr.ac.cr</p>';
 
         writeLog("logsRegistroEstudiante.log", $id." ".$nombre_estudiante." ".$correo_estudiante."  from: ".$ip);

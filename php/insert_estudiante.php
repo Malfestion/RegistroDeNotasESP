@@ -32,6 +32,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
         }
     } else {
         echo 'Error de Base de datos!';
+        writeLog("logsError.log", "Error al ingresar datos en la BD, insert_estudiante from: ".$ip);
         $query=0;
     }
 
