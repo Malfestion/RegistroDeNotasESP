@@ -17,7 +17,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['id'])) { ?>
         ?>
         <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh">
             <form class="border shadow p-3 rounded" action="php/check-login.php" method="post" style="width: 450px;">
-                <h1 class="text-center p-3">INICIO DE SESION AL REGISTRO DE NOTAS ESP</h1>
+                <h1 class="text-center p-3">INICIO DE SESIÓN AL REGISTRO DE NOTAS ESP</h1>
                 <?php if (isset($_GET['error'])) { ?>
                     <div class="alert alert-danger" role="alert">
                         <?= $_GET['error'] ?>

@@ -25,7 +25,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
 
 
         <div class="container" style="margin-top: 80px;">
-            <h2>Agregar Area</h2>
+            <h2>Agregar Área</h2>
             <br>
             <form action="php/insert_area.php" method="POST"><!--La accion de el submit del formulario es importante-->
 
@@ -40,7 +40,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
         </div>
         <br>
         <div class="container" style="margin-bottom: 80px;">
-            <h2>Areas en la lista</h2>
+            <h2>Áreas en la lista</h2>
             <br>
 
             <form action="" method="get" style="display: flex;">

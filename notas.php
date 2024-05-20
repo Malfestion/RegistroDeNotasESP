@@ -24,12 +24,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
         <div class="container" style="margin-top: 80px;">
             <br><br>
             <a class="btn btn-primary" href="agregar_nota.php" role="button">Agregar Nuevo registro</a>
-            <a class="btn btn-primary" href="registros_anteriores.php" role="button">Buscar Registros del sistema
-                anterior</a>
+            <a class="btn btn-primary" href="registros_anteriores.php" role="button">Buscar Notas anteriores al II semestre 2023</a>
             <br><br><br>
         </div>
         <div class="container" style="margin-bottom: 80px;">
-            <h2>Lista de notas 2024</h2>
+            <h2>Lista de notas del II2023 en adelante,</h2>
             <br>
             <div class="container">
                 <div class="row">
@@ -64,7 +63,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Nombre </th>
-                                                <th>Area </th>
+                                                <th>Área </th>
                                                 <th>Estado</th>
                                                 <th>Profesor </th>
                                                 <th>Nivel</th>
@@ -212,7 +211,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Estado</th>
-                            <th>Area </th>
+                            <th>Área </th>
                             <th>Profesor </th>
                             <th>Nivel</th>
                             <th>Grupo</th>

@@ -52,7 +52,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                 </div>
 
                                 <div class="mb-3  p-3">
-                                        <label for="area" class="form-label">Area</label>
+                                        <label for="area" class="form-label">Área</label>
                                         <select class="form-select select2-single" id="area" name="area">
                                                 <option value="<?= $row['id_area'] ?>" selected><?= $row['nombre_area'] ?>
                                                 </option>

@@ -27,7 +27,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
             <br><br>
         </div>
         <div class="container" style="margin-bottom: 80px;">
-            <h2>Lista de notas 2009-2023</h2>
+            <h2>Lista de notas 2009-I2023</h2>
             <br>
             <div class="container">
                 <div class="row">
@@ -59,10 +59,10 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Alumno </th>
-                                                <th>Período </th>
+                                                <th>Periodo </th>
                                                 <th>Nivel</th>
                                                 <th>Grupo </th>
-                                                <th>Area</th>
+                                                <th>Área</th>
                                                 <th>Nota</th>
                                                 <th>Profesor</th>
                                                 <th>Edición</th>

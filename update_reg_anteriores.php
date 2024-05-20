@@ -59,7 +59,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                                 value="<?= $row['grupo'] ?>">
                                 </div>
                                 <div class="mb-3  p-3">
-                                        <label for="area" class="form-label">Area</label> 
+                                        <label for="area" class="form-label">Área</label> 
                                         <input type="text" class="form-control" id="area" name="area" placeholder="Area" maxlength="50"
                                                 value="<?= $row['area'] ?>">
                                 </div>

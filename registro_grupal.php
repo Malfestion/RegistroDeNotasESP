@@ -27,9 +27,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
             <p>Herramienta para agregar notas de estudiantes a la base de datos al finalizar el ciclo lectivo.</p>
             <ul>
                 <li><p>El botón para agregar las notas a la Base de Datos se encuentra al final de esta lista para agregar notas de estudiantes.</p></li>
-                <li><p>En el caso en que el estudiante no desee continuar los cursos, quitar la marca en el el checkbox de "Continúa". Esto
+                <li><p>En el caso en que el estudiante no desee continuar los cursos, agregar la marca en el el checkbox de "RJ". Esto
                     registrará automáticamente un Retiro Justificado en el sistema.</p></li>
-                <li><p>El checkbox de "Retiro Injustificado" Sobreescribe el checkbox de "Retiro Justificado", registrando automáticamente un Retiro Injustificado en el sistema</p></li>    
+                <li><p>El checkbox de "Retiro Injustificado" Sobreescribe el checkbox de "Retiro Justificado", registrando automáticamente un Retiro Injustificado en el sistema y una nota de 0.</p></li>    
                 <li><p>En caso de necesitar realizar cambios en un registro (Puede revisarlos en la pestaña "Mi registro de
                     notas"), contacte a la administración</p></li>
             </ul>
@@ -80,7 +80,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
                         </select>
                     </div>
                     <div class="mb-3  p-3">
-                        <label for="area" class="form-label">Area</label>
+                        <label for="area" class="form-label">Área</label>
                         <select class="form-select " id="area" name="area" required="required">
                             <option value=""></option>
                             <?php
