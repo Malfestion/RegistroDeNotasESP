@@ -52,7 +52,7 @@ include "layout/head.php";
                             <th scope="col">#</th>
                             <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Area</th>
+                            <th scope="col">Área</th>
                             <th scope="col">Profesor</th>
                             <th scope="col">Nivel</th>
                             <th scope="col">Grupo</th>
@@ -140,7 +140,7 @@ include "layout/head.php";
                             <th scope="col">#</th>
                             <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Area</th>
+                            <th scope="col">Área</th>
                             <th scope="col">Profesor</th>
                             <th scope="col">Nivel</th>
                             <th scope="col">Grupo</th>

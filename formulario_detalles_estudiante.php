@@ -34,7 +34,7 @@ if ($row[0]==1) { //Esto abre o cierra el formulario dependiendo de la fecha en 
             <p>Este formulario ayudará a ingresar sus datos en el sistema de notas de Inglés por Áreas, para que los docentes puedan registrar las notas de cada curso finalizado.</p>
             <ul>
                 <li>
-                    <p>Por favor asegurese de que los datos ingresados sean correctos antes de hacer el registro.</p>
+                    <p>Por favor asegúrese de que los datos ingresados sean correctos antes de hacer el registro.</p>
                 </li>
                 <li>
                     <p>En el espacio de "Carné o Cédula", por favor ingrese su carné en caso de ser estudiante. Si usted es un funcionario por favor ingrese su número de cédula.</p>
@@ -46,7 +46,7 @@ if ($row[0]==1) { //Esto abre o cierra el formulario dependiendo de la fecha en 
                     <p>En caso de no estar en una segunda carrera, puede dejar este espacio en blanco.</p>
                 </li>
                 <li>
-                    <p>En caso de equivocarse en los datos ingresados, puede notificar a la administracion de Inglés por Áreas para realizar las correcciones necesarias.</p>
+                    <p>En caso de equivocarse en los datos ingresados, puede notificar a la administración de Inglés por Áreas para realizar las correcciones necesarias.</p>
                 </li>
             </ul>
             <hr>
@@ -57,7 +57,7 @@ if ($row[0]==1) { //Esto abre o cierra el formulario dependiendo de la fecha en 
                         <label for="name" class="form-label">
                             <ul>
                                 <li>Si usted es estudiante universitario, ingrese su carnet de estudiante</li>
-                                <li>Si usted trabaja en la universidad, ingrese su numero de cédula(<b>sin "-" ni espacios</b>)</li>
+                                <li>Si usted trabaja en la universidad, ingrese su número de cédula(<b>sin "-" ni espacios</b>)</li>
                             </ul>       
                         </label>
                         <input type="text" class="form-control" id="id" name="id" placeholder="Carnet" required="required" maxlength="9" style="width: 200px;">

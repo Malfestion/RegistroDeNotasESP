@@ -22,7 +22,7 @@
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
                                 <li><a class="dropdown-item" href="usuarios.php">Usuarios de la Página Web</a></li>
                                 <li><a class="dropdown-item" href="profesores.php">Profesores</a></li>
-                                <li><a class="dropdown-item" href="areas.php">Areas</a></li>
+                                <li><a class="dropdown-item" href="areas.php">Áreas</a></li>
                                 <li><a class="dropdown-item" href="niveles.php">Niveles</a></li>
                                 <li><a class="dropdown-item" href="estudiantes.php">Estudiantes</a></li>
                                 <li><a class="dropdown-item" href="certificaciones.php">Certificaciones</a></li>
@@ -33,7 +33,7 @@
                     <?php } ?>
                     <?php if (isset($_SESSION['username']) && isset($_SESSION['id']) &&  ($_SESSION['role'] == 'admin')) { //solo un usuario de tipo user puede ver:?>
                         <li class="nav-item">
-                            <a class="nav-link" href="infoform.php">Formulario de inscripcion estudiantes</a>
+                            <a class="nav-link" href="infoform.php">Formulario de inscripción estudiantes</a>
                         </li>
                     <?php } ?>
                     <?php if (isset($_SESSION['username']) && isset($_SESSION['id']) &&  ($_SESSION['role'] == 'user') || ($_SESSION['role'] == 'admin')) { //solo un usuario de tipo user puede ver:?>
@@ -55,9 +55,9 @@
                 </ul>
                 <?php if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'user')) {
                     echo ("<p style=\"margin-left:=2.5em;\"> Hola, " . $_SESSION['name'] . ".&nbsp;&nbsp;&nbsp;&nbsp;</p> "); //mensaje de bienvenia al usuario y boton de cerrar sesion?>
-                    <a class="btn btn-warning" href="logout.php" role="button">Cerrar Sesion</a>
+                    <a class="btn btn-warning" href="logout.php" role="button">Cerrar Sesión</a>
                 <?php } else { ?>
-                    <a class="btn btn-primary" href="login.php" role="button">Iniciar Sesion</a>
+                    <a class="btn btn-primary" href="login.php" role="button">Iniciar Sesión</a>
                 <?php } ?>
             </div>
         </div>

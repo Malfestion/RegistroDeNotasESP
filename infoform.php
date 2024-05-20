@@ -25,7 +25,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
 
 
         <div class="container" style="margin-top: 80px;">
-            <h2>Formulario de inscripcion de estudiantes</h2>
+            <h2>Formulario de inscripción de estudiantes</h2>
             <br>
             <br>
             <h4>Enlace al formulario:</h4>

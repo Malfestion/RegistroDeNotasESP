@@ -16,7 +16,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
     $carrera_1 = $_POST['1career'];
     $carrera_2 = $_POST['2career'];
     $estado_estudiante = $_POST['estado'];
-
+    $estado_fecha=date("y-m-d");
 
     $query = "SELECT id, nombre_estudiante, carrera_1 FROM estudiante WHERE id = '$id'";
 
@@ -36,7 +36,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
             $query=0;
             writeLog("logsRegistroEstudiante.log", "intento fallido, registro existente  from: ".$ip);
         } else {
-            $sql = "INSERT INTO estudiante (id, nombre_estudiante,correo_estudiante,telefono_estudiante,carrera_1,carrera_2,estado_estudiante) VALUES('$id','$nombre_estudiante','$correo_estudiante','$telefono_estudiante','$carrera_1','$carrera_2','$estado_estudiante')";
+            $sql = "INSERT INTO estudiante (id, nombre_estudiante,correo_estudiante,telefono_estudiante,carrera_1,carrera_2,estado_estudiante,estado_fecha) VALUES('$id','$nombre_estudiante','$correo_estudiante','$telefono_estudiante','$carrera_1','$carrera_2','$estado_estudiante','$estado_fecha')";
             $query = mysqli_query($conn, $sql);
         }
     } else {

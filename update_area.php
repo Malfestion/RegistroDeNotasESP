@@ -25,7 +25,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                 ?>
                 <div class="container" style="margin-top: 80px; margin-bottom: 80px;">
                         <form action="php/edit_area.php" method="POST">
-                                <h1>Editar Area</h1>
+                                <h1>Editar Área</h1>
                                 <input type="hidden" name="id"
                                         value="<?= $row['id'] //el id se deja como un valor oculto, para enviarlo al script del query?>">
                                 <div class="mb-3 p-3">
