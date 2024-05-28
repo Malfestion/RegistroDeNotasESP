@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="bootstrap5/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
         <link rel="stylesheet" href="js/DataTables-1.13.6/css/jquery.dataTables.css" />
         <link href="js/Select2-4.1.0/css/select2.min.css" rel="stylesheet" />
         <link href="bootstrap5/css/bootstrap.min.css" rel="stylesheet">
