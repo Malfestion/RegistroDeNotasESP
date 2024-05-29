@@ -24,7 +24,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
         <div class="container" style="margin-top: 80px; margin-bottom: 80px;">
             <h1 class="display-4 fs-1 text-dark"><b>Inventario de activos ESP</b></h1>
             <br><br>
-            <a href="#" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Agregar</a>
+            <a href="agregar_inventario.php" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Agregar</a>
             <br><br>
             <table id="inventarioTable" class="display table table-striped table-bordered table-hover" style="width:100%">
                 <thead>
@@ -56,6 +56,10 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                 width: auto;
                 max-width: 300px;
             }
+            .dt-buttons{
+                margin-left: 40%;
+                margin-bottom: 20px;
+            }
         </style>
 
         <script>
@@ -63,7 +67,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                 var table = $('#inventarioTable').DataTable({
                     "language": {
                         "sProcessing": "Procesando...",
-                        "sLengthMenu": "Mostrar _MENU_ registros",
+                        "sLengthMenu": "Mostrar: _MENU_ ",
                         "sZeroRecords": "No se encontraron resultados",
                         "sEmptyTable": "Ningún dato disponible en esta tabla",
                         "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
@@ -82,8 +86,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                         },
                     },
                     "lengthMenu": [
-                        [10, 25, 50, 1000],
-                        [10, 25, 50, 'All']
+                        [1000, 10, 25, 50],
+                        ['Todos', 10, 25, 50]
                     ],
                     "processing": true,
                     "serverSide": true,
@@ -91,7 +95,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                     "dom": '<"top"lfB>rt<"bottom"ip><"clear">', // Add this line to enable buttons
                     "buttons": [{
                         "extend": 'excelHtml5',
-                        "text": '<i class="fas fa-file-excel"></i>',
+                        "text": '<i class="fas fa-file-excel"></i> Exportar a Excel ',
                         "className": 'btn btn-success',
 
                     }]

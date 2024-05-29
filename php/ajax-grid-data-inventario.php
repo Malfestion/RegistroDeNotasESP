@@ -48,7 +48,7 @@ $totalFiltered = mysqli_num_rows($query);
 $sql .= " ORDER BY " . $col[$request['order'][0]['column']] . " " . $request['order'][0]['dir'] . " LIMIT " . $request['start'] . ", " . $request['length'];
 
 // Fetch data
-$query = mysqli_query($conn, $sql);
+$query = mysqli_query($conn, $sql) or die("ajax-grid-data-inventario.php: get orders"."sql: ".$sql);
 
 $data = array();
 while ($row = mysqli_fetch_array($query)) {
@@ -62,7 +62,7 @@ while ($row = mysqli_fetch_array($query)) {
     $subdata[] = $row['responsable'];
     $subdata[] = $row['observaciones'];
     $subdata[] ='<a href="update_inventario.php?id='.$row['item_id'].'"  data-toggle="tooltip" title="Editar Estudiante" class="btn btn-sm btn-primary">Editar</a>';
-    $subdata[] ='<a href="php/delete_inventario.php?id='.$row['item_id'].'"  data-toggle="tooltip" title="Borrar datos" class="btn btn-sm btn-danger" onclick="return confirm(\'Realmente quiere eliminar esta entrada?\')">Borrar</a>';
+    $subdata[] ='<a href="php/delete_inventario.php?item_id='.$row['item_id'].'"  data-toggle="tooltip" title="Borrar datos" class="btn btn-sm btn-danger" onclick="return confirm(\'Realmente quiere eliminar esta entrada?\')">Borrar</a>';
     // Add other columns as needed
     $data[] = $subdata;
 }
