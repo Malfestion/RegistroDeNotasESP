@@ -56,7 +56,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                 width: auto;
                 max-width: 300px;
             }
-            .dt-buttons{
+
+            .dt-buttons {
                 margin-left: 40%;
                 margin-bottom: 20px;
             }
@@ -97,6 +98,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                         "extend": 'excelHtml5',
                         "text": '<i class="fas fa-file-excel"></i> Exportar a Excel ',
                         "className": 'btn btn-success',
+                        "exportOptions": {
+                            "columns": ':not(:last-child):not(:nth-last-child(2))'
+                        }
 
                     }]
                 });
