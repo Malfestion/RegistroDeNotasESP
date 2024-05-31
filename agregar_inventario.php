@@ -25,23 +25,23 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                 <br>
                 <div class="d-flex p-1">
                     <label for="name" class="control-label col-sm-1">Placa: </label>
-                    <input type="text" class="form-control w-25" id="placa" name="placa" placeholder="Numero de placa" maxlength="25" value="">
+                    <input type="text" class="form-control w-25" id="placa" name="placa" placeholder="Numero de placa" maxlength="50" value="">
                 </div>
                 <div class="d-flex p-1">
                     <label for="name" class="control-label col-sm-1">Descripción: </label>
-                    <input type="text" class="form-control w-25" id="descripcion" name="descripcion" placeholder="Descripción" maxlength="25" value="">
+                    <input type="text" class="form-control w-25" id="descripcion" name="descripcion" placeholder="Descripción" maxlength="50" value="">
                 </div>
                 <div class="d-flex p-1">
                     <label for="name" class="control-label col-sm-1">Marca: </label>
-                    <input type="text" class="form-control w-25" id="marca" name="marca" placeholder="Marca" maxlength="25" value="">
+                    <input type="text" class="form-control w-25" id="marca" name="marca" placeholder="Marca" maxlength="50" value="">
                 </div>
                 <div class="d-flex p-1">
                     <label for="name" class="control-label col-sm-1">Modelo: </label>
-                    <input type="text" class="form-control w-25" id="modelo" name="modelo" placeholder="Modelo" maxlength="25" value="">
+                    <input type="text" class="form-control w-25" id="modelo" name="modelo" placeholder="Modelo" maxlength="50" value="">
                 </div>
                 <div class="d-flex p-1">
                     <label for="name" class="control-label col-sm-1">Serie: </label>
-                    <input type="text" class="form-control w-25" id="serie" name="serie" placeholder="Serie" maxlength="25" value="">
+                    <input type="text" class="form-control w-25" id="serie" name="serie" placeholder="Serie" maxlength="50" value="">
                 </div>
                 <div class="d-flex p-1">
                     <label for="name" class="control-label col-sm-1">Categoría: </label>
@@ -57,11 +57,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                 </div>
                 <div class="d-flex p-1">
                     <label for="name" class="control-label col-sm-1">Asignado a: </label>
-                    <input type="text" class="form-control w-25" id="responsable" name="responsable" placeholder="Responsable" maxlength="25" value="">
+                    <input type="text" class="form-control w-25" id="responsable" name="responsable" placeholder="Responsable" maxlength="50" value="">
                 </div>
                 <div class="d-flex p-1">
                     <label for="name" class="control-label col-sm-1">Observaciones: </label>
-                    <input type="text" class="form-control w-50" id="observaciones" name="observaciones" placeholder="Observaciones" maxlength="100" value="">
+                    <input type="text" class="form-control w-50" id="observaciones" name="observaciones" placeholder="Observaciones" maxlength="200" value="">
                 </div>
                 <br>
                 <input type="submit" class="btn btn-primary" style="margin-left: 15px;" value="Agregar">
