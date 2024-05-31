@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="https://www.inglesporareas.ucr.ac.cr/">
                 <img src="img/logoESP.png" alt="" width="110" height="48">
             </a>
             <a class="navbar-brand" href="index.php">Registro de notas </a>
@@ -10,9 +10,6 @@
             </button>
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.inglesporareas.ucr.ac.cr/">Página web principal</a>
-                    </li>
                     <?php if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role'] == 'admin')) { //solo un usuario de tipo admin puede ver:?>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
@@ -21,12 +18,21 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
                                 <li><a class="dropdown-item" href="usuarios.php">Usuarios de la Página Web</a></li>
-                                <li><a class="dropdown-item" href="profesores.php">Profesores</a></li>
-                                <li><a class="dropdown-item" href="areas.php">Áreas</a></li>
-                                <li><a class="dropdown-item" href="niveles.php">Niveles</a></li>
+                                <li><a class="dropdown-item" href="inventario.php">Inventario ESP</a></li>
                                 <li><a class="dropdown-item" href="estudiantes.php">Estudiantes</a></li>
                                 <li><a class="dropdown-item" href="certificaciones.php">Certificaciones</a></li>
                                 <li><a class="dropdown-item text-warning" href="notas.php">Notas</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Configuracion BD
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="profesores.php">Profesores</a></li>
+                                <li><a class="dropdown-item" href="areas.php">Áreas</a></li>
+                                <li><a class="dropdown-item" href="niveles.php">Niveles</a></li>
                             </ul>
                         </li>
 
