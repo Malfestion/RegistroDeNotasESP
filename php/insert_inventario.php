@@ -25,7 +25,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
 
 
     if ($query) {
-        writeLog("logsWrite.log", $_SESSION['username']." Inserta nueva Certificacion ".$id_estudiante." ".$fecha_cert."  from: ".$ip);
+        writeLog("logsWrite.log", $_SESSION['username']." Inserta nuevo item inventario ".$descripcion."  from: ".$ip);
         Header("Location: ../inventario.php");
     };
 }
