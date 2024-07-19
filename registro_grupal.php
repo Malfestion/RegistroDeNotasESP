@@ -123,7 +123,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
 
             $(document).ready(function () {
 
-                $('.select2-single').select2();
+                $('.select2-single').select2({
+                    tags: true
+                });
             });
         </script>
     </body>
