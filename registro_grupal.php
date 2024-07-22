@@ -144,17 +144,38 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
                     reader.onload = function(e) {
                         const contents = e.target.result;
                         console.log('CSV Contents:', contents);
-                        const rows = contents.split('\n');
+
+                        // Split rows by new line, handling quoted values
+                        const rows = parseCSV(contents);
                         rows.forEach((row, index) => {
-                            const columns = row.split(',');
-                            if (columns.length === 2) {
-                                const studentId = columns[0].trim();
-                                const grade = columns[1].trim();
-                                console.log(`Row ${index + 1}: ID=${studentId}, Grade=${grade}`); // Log each row's data
+                            if (row.length === 3) {
+                                const studentId = row[0].trim();
+                                const grade = row[2].trim();
+                                console.log(`Row ${index + 1}: ID=${studentId}, Grade=${grade}`);
+
                                 const studentField = document.getElementById('estudiante-' + (index + 1));
                                 const gradeField = document.getElementById('nota-' + (index + 1));
+
                                 if (studentField && gradeField) {
-                                    studentField.value = studentId;
+                                    // Check if the option already exists
+                                    let optionExists = false;
+                                    for (let i = 0; i < studentField.options.length; i++) {
+                                        if (studentField.options[i].value === studentId) {
+                                            optionExists = true;
+                                            console.log('existe:', studentId);
+                                            break;
+                                        }
+                                    }
+
+                                    // If the option does not exist, create it
+                                    if (!optionExists) {
+                                        console.log('No existe:', studentId);
+                                        const newOption = new Option(studentId, studentId, true, true);
+                                        studentField.add(newOption);
+                                    } else {
+                                        studentField.value = studentId;
+                                    }
+
                                     gradeField.value = grade;
 
                                     // Trigger change event for Select2 to update its display
@@ -168,6 +189,44 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
                     reader.readAsText(file);
                 }
             });
+
+            // Function to parse CSV data, handling quoted values
+            function parseCSV(csvString) {
+                const rows = [];
+                const lines = csvString.split('\n');
+                let currentRow = [];
+                let inQuotes = false;
+                let currentField = '';
+
+                lines.forEach(line => {
+                    for (let i = 0; i < line.length; i++) {
+                        const char = line[i];
+                        if (char === '"' && (i === 0 || line[i - 1] !== '\\')) {
+                            inQuotes = !inQuotes;
+                        } else if (char === ',' && !inQuotes) {
+                            currentRow.push(currentField.trim());
+                            currentField = '';
+                        } else if (char === '\n' && !inQuotes) {
+                            currentRow.push(currentField.trim());
+                            rows.push(currentRow);
+                            currentRow = [];
+                            currentField = '';
+                        } else {
+                            currentField += char;
+                        }
+                    }
+                    if (currentField) {
+                        currentRow.push(currentField.trim());
+                        currentField = '';
+                    }
+                    if (currentRow.length > 0) {
+                        rows.push(currentRow);
+                        currentRow = [];
+                    }
+                });
+
+                return rows;
+            }
         </script>
     </body>
 
