@@ -10,6 +10,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
     include "logging.php";
 
     $id = $_POST['id'];
+    $id = str_replace(' ', '', $id);
     $nombre_estudiante = $_POST['nombre'];
     $correo_estudiante = $_POST['correo'];
     $telefono_estudiante = $_POST['telefono'];

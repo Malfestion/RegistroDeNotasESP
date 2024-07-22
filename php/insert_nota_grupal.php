@@ -29,7 +29,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
         $result=mysqli_query($conn, "SELECT id FROM estudiante WHERE id = '$estudianteActual' LIMIT 1");
         if(!mysqli_num_rows($result) > 0 && !empty($estudianteActual)) {
             //no existe en BD
-            $result=mysqli_query($conn, "INSERT INTO estudiante (id, nombre_estudiante,correo_estudiante,telefono_estudiante,carrera_1,carrera_2,estado_estudiante) VALUES('$estudianteActual','PDT','PDT','PDT','PDT','PDT','PDT')");
+            $result=mysqli_query($conn, "INSERT INTO estudiante (id, nombre_estudiante,correo_estudiante,telefono_estudiante,carrera_1,carrera_2,estado_estudiante	) VALUES('$estudianteActual','PDT','PDT','','','','PDT')");
         }
     }
 
