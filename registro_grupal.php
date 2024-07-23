@@ -109,6 +109,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
                 <div class="mb-3 p-3">
                     <label for="csvFile" class="form-label">Importar CSV:</label>
                     <input type="file" id="csvFile" name="csvFile" accept=".csv" class="form-control" style="width:30%">
+                    <br>
+                    <a href="files/importarNotas_plantilla.csv" download><i class="fa fa-file-excel"></i>Descargar plantilla</a>
                 </div>
                 <h3>Estudiantes:</h3>
                 <?php
