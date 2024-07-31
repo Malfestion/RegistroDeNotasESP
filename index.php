@@ -28,19 +28,20 @@ include "layout/head.php";
 
             <form action="" method="get" style="display: flex;">
                 <input class="form-control" type="search" name="busqueda" style="width: 500px;" value="<?php if (!empty($_GET['busqueda'])) { //para que no se borre el valor ingresado+escape de caracteres
-                        echo str_replace(
-                            array(
-                                '\'',
-                                '"',
-                                ',',
-                                ';',
-                                '<',
-                                '>',
-                                '?'
-                            ),
-                            '', $_GET['busqueda']
-                        );
-                    } ?>" placeholder="Ingrese el carné/cédula que quiera consultar" aria-label="Search">
+                                                                                                            echo str_replace(
+                                                                                                                array(
+                                                                                                                    '\'',
+                                                                                                                    '"',
+                                                                                                                    ',',
+                                                                                                                    ';',
+                                                                                                                    '<',
+                                                                                                                    '>',
+                                                                                                                    '?'
+                                                                                                                ),
+                                                                                                                '',
+                                                                                                                $_GET['busqueda']
+                                                                                                            );
+                                                                                                        } ?>" placeholder="Ingrese el carné/cédula que quiera consultar" aria-label="Search">
                 <button class="btn btn-primary" type="submit" name="enviar" value="Buscar">Buscar</button>
             </form>
             <br>
@@ -61,35 +62,36 @@ include "layout/head.php";
                         </tr>
                     </thead>
                     <tbody>
-                    <?php }
-            if (isset($_GET['enviar'])) {
+                        <?php }
+                    if (isset($_GET['enviar'])) {
 
-                $busqueda = $_GET['busqueda'];
-                $busqueda = str_replace(
-                    array(
-                        '\'',
-                        '"',
-                        ',',
-                        ';',
-                        '<',
-                        '>',
-                        '?'
-                    ),
-                    '',
-                    $busqueda
-                );
-                if (!empty($busqueda) && strlen($busqueda) >= 6) { //solo se muestran resultados si se hace una consulta con al menos 6 caracteres
-                    $consulta = $conn->query("SELECT * FROM notas 
+                        $busqueda = $_GET['busqueda'];
+                        $busqueda = str_replace(
+                            array(
+                                '\'',
+                                '"',
+                                ',',
+                                ';',
+                                '<',
+                                '>',
+                                '?'
+                            ),
+                            '',
+                            $busqueda
+                        );
+                        if (!empty($busqueda) && strlen($busqueda) >= 6) { //solo se muestran resultados si se hace una consulta con al menos 6 caracteres
+                            $consulta = $conn->query("SELECT * FROM notas 
                     JOIN estudiante ON (estudiante.id = notas.id_estudiante)
                     JOIN area ON (area.id = notas.id_area) 
                     JOIN profesor ON (profesor.id = notas.id_profesor)
                     JOIN nivel ON (nivel.id = notas.id_nivel)   
                     WHERE id_estudiante LIKE '%$busqueda%'
                     ORDER BY id_nota DESC"); //consulta completa a la BD con sus relaciones "join".
-                    if ($consulta->num_rows > 0) { //si existen resultados
-            
-                        $i = 1;
-                        while ($row = $consulta->fetch_array()) { //se muestran los resultados de la consulta?>
+                            if ($consulta->num_rows > 0) { //si existen resultados
+
+                                $i = 1;
+                                while ($row = $consulta->fetch_array()) { //se muestran los resultados de la consulta
+                        ?>
                                     <tr>
                                         <th scope="row">
                                             <?= $i ?>
@@ -116,102 +118,110 @@ include "layout/head.php";
                                             <?= $row['periodo'] ?>
                                         </td>
                                         <td>
-                                            <?= $row['nota']/10 ?>
+                                            <?php
+                                            if ($row['nota'] == "RI" || $row['nota'] == "RJ") {
+                                                echo $row['nota'];
+                                            } else {
+                                                echo $row['nota'] / 10;
+                                            }
+                                            ?>
+
                                         </td>
                                     </tr>
-                                    <?php $i++;
-                        }
-                    } else {
-                        echo ("<p class=\"text-secondary\"> No se han encontrado resultados del 2024 en adelante. Verifique los datos ingresados. </p> ");
-                    }
-                } else {
-                    echo ("<p class=\"text-secondary\"> Ingrese un número de carné o número de cédula válido. </p> ");
-                } ?>
+                        <?php $i++;
+                                }
+                            } else {
+                                echo ("<p class=\"text-secondary\"> No se han encontrado resultados del 2024 en adelante. Verifique los datos ingresados. </p> ");
+                            }
+                        } else {
+                            echo ("<p class=\"text-secondary\"> Ingrese un número de carné o número de cédula válido. </p> ");
+                        } ?>
                     <?php } ?>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
 
 
-            <?php
-            if (isset($_GET['enviar']) && !empty($_GET['busqueda']) && strlen($_GET['busqueda']) >= 6) { ?>
-                <table class="table table-dark table-striped table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Área</th>
-                            <th scope="col">Profesor</th>
-                            <th scope="col">Nivel</th>
-                            <th scope="col">Grupo</th>
-                            <th scope="col">Periodo</th>
-                            <th scope="col">Nota</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php }
-            if (isset($_GET['enviar'])) {
+                <?php
+                if (isset($_GET['enviar']) && !empty($_GET['busqueda']) && strlen($_GET['busqueda']) >= 6) { ?>
+                    <table class="table table-dark table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Área</th>
+                                <th scope="col">Profesor</th>
+                                <th scope="col">Nivel</th>
+                                <th scope="col">Grupo</th>
+                                <th scope="col">Periodo</th>
+                                <th scope="col">Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php }
+                        if (isset($_GET['enviar'])) {
 
-                $busqueda = $_GET['busqueda'];
-                $busqueda = str_replace(
-                    array(
-                        '\'',
-                        '"',
-                        ',',
-                        ';',
-                        '<',
-                        '>',
-                        '?'
-                    ),
-                    '',
-                    $busqueda
-                );
-                if (!empty($busqueda) && strlen($busqueda) >= 6) { //solo se muestran resultados si se hace una consulta con al menos 6 caracteres
-                    $consulta = $conn->query("SELECT * FROM datos   
+                            $busqueda = $_GET['busqueda'];
+                            $busqueda = str_replace(
+                                array(
+                                    '\'',
+                                    '"',
+                                    ',',
+                                    ';',
+                                    '<',
+                                    '>',
+                                    '?'
+                                ),
+                                '',
+                                $busqueda
+                            );
+                            if (!empty($busqueda) && strlen($busqueda) >= 6) { //solo se muestran resultados si se hace una consulta con al menos 6 caracteres
+                                $consulta = $conn->query("SELECT * FROM datos   
                     WHERE id LIKE '%$busqueda%' 
                     ORDER BY edit DESC"); //consulta completa a la BD con sus relaciones "join".
-                    if ($consulta->num_rows > 0) { //si existen resultados
-            
-                        $i = 1;
-                        while ($row = $consulta->fetch_array()) { //se muestran los resultados de la consulta?>
-                                    <tr>
-                                        <th scope="row">
-                                            <?= $i ?>
-                                        </th>
-                                        <td>
-                                            <?= $row['id'] ?>
-                                        </td>
-                                        <td>
-                                            <?= $row['nombre'] ?>
-                                        </td>
-                                        <td>
-                                            <?= $row['area'] ?>
-                                        </td>
-                                        <td>
-                                            <?= $row['profesor'] ?>
-                                        </td>
-                                        <td>
-                                            <?= $row['nivel'] ?>
-                                        </td>
-                                        <td>
-                                            <?= $row['grupo'] ?>
-                                        </td>
-                                        <td>
-                                            <?= $row['periodo'] ?>
-                                        </td>
-                                        <td>
-                                            <?= $row['nota'] ?>
-                                        </td>
-                                    </tr>
-                                    <?php $i++;
-                        }
-                    } else {
-                        echo ("<p class=\"text-secondary\"> No se han encontrado resultados previos a 2023 </p> ");
-                    }
-                }  ?>
-                    <?php } ?>
-                </tbody>
-            </table>
+                                if ($consulta->num_rows > 0) { //si existen resultados
+
+                                    $i = 1;
+                                    while ($row = $consulta->fetch_array()) { //se muestran los resultados de la consulta
+                            ?>
+                                        <tr>
+                                            <th scope="row">
+                                                <?= $i ?>
+                                            </th>
+                                            <td>
+                                                <?= $row['id'] ?>
+                                            </td>
+                                            <td>
+                                                <?= $row['nombre'] ?>
+                                            </td>
+                                            <td>
+                                                <?= $row['area'] ?>
+                                            </td>
+                                            <td>
+                                                <?= $row['profesor'] ?>
+                                            </td>
+                                            <td>
+                                                <?= $row['nivel'] ?>
+                                            </td>
+                                            <td>
+                                                <?= $row['grupo'] ?>
+                                            </td>
+                                            <td>
+                                                <?= $row['periodo'] ?>
+                                            </td>
+                                            <td>
+                                                <?= $row['nota'] ?>
+                                            </td>
+                                        </tr>
+                            <?php $i++;
+                                    }
+                                } else {
+                                    echo ("<p class=\"text-secondary\"> No se han encontrado resultados previos a 2023 </p> ");
+                                }
+                            }  ?>
+                        <?php } ?>
+                        </tbody>
+                    </table>
 
 
         </div>
