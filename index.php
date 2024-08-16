@@ -119,11 +119,7 @@ include "layout/head.php";
                                         </td>
                                         <td>
                                             <?php
-                                            if ($row['nota'] == "RI" || $row['nota'] == "RJ") {
-                                                echo $row['nota'];
-                                            } else {
-                                                echo $row['nota'] / 10;
-                                            }
+                                            echo $row['nota']; 
                                             ?>
 
                                         </td>

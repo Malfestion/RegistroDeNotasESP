@@ -110,7 +110,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
                     <label for="csvFile" class="form-label">Importar CSV:</label>
                     <input type="file" id="csvFile" name="csvFile" accept=".csv" class="form-control" style="width:30%">
                     <br>
-                    <a href="files/importarNotas_plantilla.csv" download><i class="fa fa-file-excel"></i>Descargar plantilla</a>
                 </div>
                 <h3>Estudiantes:</h3>
                 <?php
@@ -150,9 +149,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
                         // Split rows by new line, handling quoted values
                         const rows = parseCSV(contents);
                         rows.forEach((row, index) => {
-                            if (row.length === 3) {
+                            if (row.length > 1) {
                                 const studentId = row[0].trim();
-                                const grade = row[2].trim();
+                                const grade = row[1].trim();
                                 console.log(`Row ${index + 1}: ID=${studentId}, Grade=${grade}`);
 
                                 const studentField = document.getElementById('estudiante-' + (index + 1));
