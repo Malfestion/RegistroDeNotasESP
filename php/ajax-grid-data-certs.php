@@ -13,11 +13,11 @@ $requestData= $_REQUEST;
 $columns = array( 
 // datatable column index  => database column name
 	0 => 'id_estudiante',
-	1 => 'nombre_estudiante', 
-	2 => 'lectura',
-	3 => 'escucha',
-	4 => 'escritura',
-    5 => 'habla',
+	1 => 'nombre_estudiante',
+	2 => 'escucha', 
+	3 => 'lectura',
+    4 => 'habla',
+	5 => 'escritura',
 	6 => 'fecha_cert'
 );
 
@@ -73,10 +73,10 @@ while( $row=mysqli_fetch_array($query) ) {  // preparing an array
 
 	$nestedData[] = $row["id_estudiante"];
     $nestedData[] = $row["nombre_estudiante"];
-	$nestedData[] = $row["lectura"];
 	$nestedData[] = $row["escucha"];
-	$nestedData[] = $row["escritura"];
-    $nestedData[] = $row["habla"];
+	$nestedData[] = $row["lectura"];
+	$nestedData[] = $row["habla"];
+    $nestedData[] = $row["escritura"];
 	$nestedData[] = $row["fecha_cert"];
 	$nestedData[] = '<a href="update_cert.php?id_cert='.$row['id_cert'].'"  data-toggle="tooltip" title="Editar Certificacion" class="btn btn-sm btn-primary">Editar</a>';
 	$nestedData[] = '<a href="php/delete_cert.php?id_cert='.$row['id_cert'].'"  data-toggle="tooltip" title="Borrar datos" class="btn btn-sm btn-danger" onclick="return confirm(\'Realmente quiere eliminar esta entrada?\')">Borrar</a>';

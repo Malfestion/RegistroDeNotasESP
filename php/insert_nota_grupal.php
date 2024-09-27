@@ -22,9 +22,22 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
 
     $sql = "INSERT INTO notas (id_estudiante, id_area, id_profesor, id_nivel, nombre_grupo, periodo, nota) VALUES";
 
+    //Revisa si existe el estudiante en bd. si no, lo agrega
+    for ($i = 1; $i <= 31; $i++) {
+        $estudianteActual = $_POST['estudiante-' . $i];
+        $estudianteActual=str_replace(' ', '', $estudianteActual);
+        $result=mysqli_query($conn, "SELECT id FROM estudiante WHERE id = '$estudianteActual' LIMIT 1");
+        if(!mysqli_num_rows($result) > 0 && !empty($estudianteActual)) {
+            //no existe en BD
+            $result=mysqli_query($conn, "INSERT INTO estudiante (id, nombre_estudiante,correo_estudiante,telefono_estudiante,carrera_1,carrera_2,estado_estudiante	) VALUES('$estudianteActual','PDT','PDT','','','','PDT')");
+        }
+    }
+
     //Se Revisa el commitment y retiro de cada nota ingresada y se le da un valor en el arreglo de commmitments y de retiros
     for ($i = 1; $i <= 31; $i++) {
-        $estudiantes[] = $_POST['estudiante-' . $i];
+        $estudianteActual = $_POST['estudiante-' . $i];
+        $estudianteActual=str_replace(' ', '', $estudianteActual);
+        $estudiantes[] = $estudianteActual;
         $notas[] = $_POST['nota-' . $i];
         if (isset($_POST['commitment-' . $i]) && $_POST['commitment-' . $i] == 'SI') {
             $commitments[] = 'SI';
@@ -33,7 +46,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
         }
     }
     for ($i = 1; $i <= 31; $i++) {
-        $estudiantes[] = $_POST['estudiante-' . $i];
+        $estudianteActual = $_POST['estudiante-' . $i];
+        $estudianteActual=str_replace(' ', '', $estudianteActual);
+        $estudiantes[] = $estudianteActual;
         $notas[] = $_POST['nota-' . $i];
         if (isset($_POST['ri-' . $i]) && $_POST['ri-' . $i] == 'SI') {
             $retiros[] = 'SI';

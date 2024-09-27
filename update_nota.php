@@ -101,7 +101,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['role'] 
                                 </div>
                                 <div class="mb-3  p-3">
                                         <label for="tel" class="form-label">Nota</label>
-                                        <input type="number" class="form-control" id="nota" name="nota" placeholder="Nota 0-100" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"  maxLength="3"
+                                        <input type="text" class="form-control" id="nota" name="nota" placeholder="Nota 0-100"  maxLength="3"
                                                 value="<?= $row['nota'] //se muestran los datos existentes para qye se pueda editar?>">
                                 </div>
                                 <input type="submit" class="btn btn-primary" style="margin-left: 15px;"

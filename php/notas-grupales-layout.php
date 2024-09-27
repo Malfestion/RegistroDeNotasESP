@@ -28,8 +28,8 @@ $index = 0;
                 </div>
                 <div class="mb-3  p-3 d-flex">
                     <label for="nota-<?= $index ?>" class="form-label">Nota:&nbsp;&nbsp; </label>
-                    <input type="number" class="form-control" id="nota-<?= $index ?>" name="nota-<?= $index ?>"
-                        placeholder="0-100" maxlength="3" style="height: 30px; width: 90px;" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                    <input type="text" class="form-control" id="nota-<?= $index ?>" name="nota-<?= $index ?>"
+                        placeholder="0-100" maxlength="3" style="height: 30px; width: 90px;">
                 </div>
                 <div class="form-check" style="margin-top: 20px;">
                     <label class="form-check-label" for="flexCheckDefault">RJ</label>
@@ -71,8 +71,8 @@ $index = 0;
                 </div>
                 <div class="mb-3  p-3 d-flex">
                     <label for="nota-<?= $index ?>" class="form-label">Nota:&nbsp;&nbsp; </label>
-                    <input type="number" class="form-control" id="nota-<?= $index ?>" name="nota-<?= $index ?>"
-                        placeholder="0-100" maxlength="3" style="height: 30px; width: 90px;" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                    <input type="text" class="form-control" id="nota-<?= $index ?>" name="nota-<?= $index ?>"
+                        placeholder="0-100" maxlength="3" style="height: 30px; width: 90px;">
                 </div>
                 <div class="form-check" style="margin-top: 20px; ">
                     <label class="form-check-label" for="flexCheckDefault">RJ</label>
