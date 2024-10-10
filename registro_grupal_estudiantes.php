@@ -23,8 +23,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['id']) && ($_SESSION['role']
             <button type="submit" class="btn btn-primary" name="previsualizar">Previsualizar Estudiantes a subir</button>
         </form>
 
-        
-   
+        <br>
+        <!-- Botón para descargar la plantilla CSV -->
+        <a href="files/PlantillaCSVEstudiantes.csv" class="btn btn-secondary" download="PlantillaCSVEstudiantes.csv">
+            Descargar Plantilla CSV
+        </a>
 
     </div>
 
